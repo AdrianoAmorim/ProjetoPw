@@ -1,7 +1,6 @@
 <?php
 
-
-require_once 'conexao.php';
+require_once ('conexao.php');
 
 if($_POST){
     $codFunc =$_POST['codFunc'] ;
@@ -29,7 +28,6 @@ if($_POST){
             . "'$bairro','$cep','$cidade','ES');";
     $exec_query = pg_query($query) or die ("Erro:" . pg_last_error());
     $exec_query2 = pg_query($query2) or die ("Erro:" . pg_last_error());
-
     header("location: index.php");
     
 }else{

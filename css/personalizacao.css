@@ -1,0 +1,25 @@
+body{
+    padding-top: 60px;
+}
+.bgTitulo{
+    background-color: #c7d9ca;
+}
+.floatEsq{
+    float: left;
+}
+.centralizarTexto{
+    text-align: center;
+}
+
+.tiraPadding{
+    padding: 0;
+    margin: 0;
+}
+
+div.container > div.panel.panel-default{
+    margin-bottom: 30px;
+}
+
+div.container  div.panel-body > div.centralizarTexto > span {
+   font-weight: bold;
+}

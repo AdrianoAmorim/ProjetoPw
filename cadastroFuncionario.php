@@ -1,132 +1,248 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <!--[if gte IE 9]>
-          <style type="text/css">
-            .gradient {
-               filter: none;
-            }
-          </style>
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <title>Gestão Empresarial</title>
-        <meta charset="UTF-8">
-        <link href="estilo.css" rel="stylesheet" type="text/css"/>
-        <script src="script.js" type="text/javascript"></script>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Cadastro de Funcionário</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/personalizacao.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body>
-        <header class="Cabecalho gradienteRoxo-Lilas">
-            <div class="centralizar">
-                <span id="bemVindo">Bem vindo usuário</span>
-                <div class="limparFloat"></div>
 
-                <nav>
-                    <ul class="menu">
-                        <li><a href="index.php">Início</a></li>
-                        <li><a href="cadastroFuncionario.php">Cadastro de Funcionário</a></li>
-                        <li><a href="#">Cadastro de Fornecedor</a></li>
-                        <li><a href="#">Relatórios</a></li>
-                        <li><a href="#">Filiais</a></li>
-                        <li class="ultimo"><a href="#">Administração</a></li>
-                    </ul>
-                </nav>
-            </div>
+    <body> 
+        <header>
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Brand</a>
+                    </div>
+
+                    <!-- Conteudo da nav bar-->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li role="presentation"><a href="#">Home</a></li>
+                            <li role="presentation"><a href="cadastroFuncionario.php">Cadastro de Funcionario</a></li>
+                            <li role="presentation"><a href="#">Administração</a></li>
+                            <li role="presentation"><a href="#">Relatórios</a></li>
+                        </ul>
+                    </div>  
+                </div>
+            </nav> 
         </header>
-        <div class="centralizar">
-            <div class="bgTituloConteudo">
-                <h3 class="tituloConteudo">Cadastro de Funcionário</h3>
-                <div class="logoTituloConteudo">
-                    <img src="img/Funcionario.png" alt="logo Titulo"/>
+
+        <!-- Titulo da pagina -->
+        <div class="container">
+            <div class="panel bgTitulo panel-default ">
+                <div class="panel-body">
+                    <div class="centralizarTexto">
+                        <span class="panel-title">CADASTRO DE FUNCIONARIO</span>   
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
+
+        <!-- ------------------        FORMULARIO DE CADASTRO--------------------------------------------------------------------------- -->
+        <div class="container">
+            <form name="formCadFuncionario" action="procCadFuncionario.php" method="POST" class="form-horizontal" role="form">
+
+                <div class="form-group">
+                    <label for="codFunc" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Código Func</label>
+                    <div class="col-xs-7 col-sm-3 col-md-2">
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default tiraPadding" type="button">
+                                    <a href="#" ><img src="images/iconPqBusca.png" alt="Buscar"/></a>
+                                </button>
+                            </span>
+                            <input type="text" class="form-control" name="codFunc" id="codFunc">
+                        </div>
+                    </div>
                 </div>
 
-            </div>
+                <div class="form-group">
+                    <label for="codEmpresa" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Código Empresa</label>
+                    <div class="col-xs-7 col-sm-3 col-md-2">
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default tiraPadding" type="button">
+                                    <a href="#" ><img src="images/iconPqBusca.png" alt="Buscar"/></a>
+                                </button>
+                            </span>
+                            <input type="text" class="form-control" name="codEmpresa" id="codEmpresa">
+                        </div>
+                    </div>
+                </div>
 
-            <section class="conteudo centralizar">
-                <aside class="barraEsquerda">
+                <div class="form-group">
+                    <label for="codCargo" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Código Cargo</label>
+                    <div class="col-xs-7 col-sm-3 col-md-2">
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default tiraPadding" type="button">
+                                    <a href="" ><img src="images/iconPqBusca.png" alt="Buscar"/></a>
+                                </button>
+                            </span>
+                            <input type="text" class="form-control" name="codCargo" id="codCargo">
+                        </div>
+                    </div>
+                </div>
 
-                </aside>
+                <div class="form-group">
+                    <label for="nomeFunc" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Nome</label>
+                    <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default tiraPadding" type="button">
+                                    <a data-toggle="modal" href="#buscarFunc" role="button"><img src="images/iconPqBusca.png" alt="Buscar"/></a>
+                                </button>
+                            </span>
+                            <input type="text" class="form-control" name="nomeFunc" id="nomeFunc">
+                        </div>
+                    </div>
+                </div>
 
-                <form name="formCadFuncionario" method="POST" action="procCadFuncionario.php" class="formularios">
-                    <label for="codFunc" class="labelCampo">Cod Func: </label>
-                    <input type="text" name="codFunc" value="" id="codFunc" class="campoValores inCodEmpresa"/><br> 
+                <div class="form-group">
+                    <label for="telCelular" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Tel Celular</label>
+                    <div class="col-xs-7 col-sm-3 col-md-2 col-lg-2">
+                        <input type="tel" class="form-control" name="telCelular" id="telCelular">
+                    </div>
+                </div>
 
-                    <label for="codEmpresa" class="labelCampo">Cod Empresa: </label>
-                    <input type="text" name="codEmpresa" value="" id="codEmpresa" class="campoValores inCodEmpresa"/><br> 
+                <div class="form-group">
+                    <label for="telResidencial" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Tel Residencial</label>
+                    <div class="col-xs-7 col-sm-3 col-md-2 col-lg-2">
+                        <input type="tel" class="form-control" name="telResidencial" id="telResidencial">
+                    </div>
+                </div>
 
-                    <label for="codCargo" class="labelCampo">Cod Cargo: </label>
-                    <input type="text" name="codCargo" value="" id="codCargo" class="campoValores inCodCargo" /><br>
+                <div class="form-group">
+                    <label for="cpf" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">CPF</label>
+                    <div class="col-xs-7 col-sm-3 col-md-2 col-lg-2">
+                        <input type="text" class="form-control" name="cpf" id="cpf" >
+                    </div>
+                </div>
 
-                    <label for="nomeFunc" class="labelCampo">Nome:
-                        <img src="img/buscarNovo02.png" id="iconBuscarNome"/></label>
-                    <input type="text" name="nomeFunc" value="" id="nomeFunc"  class="campoValores inNomeFunc" /><br>
+                <div class="form-group">
+                    <label for="rg" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">RG</label>
+                    <div class="col-xs-7 col-sm-3 col-md-2 col-lg-2">
+                        <input type="text" class="form-control" name="rg" id="rg">
+                    </div>
+                </div>
 
-                    <label for="telCelular" class="labelCampo">Tel Celular: </label>
-                    <input type="text" name="telCelular" value="" id="telCelular" class="campoValores inTelCel" />
+                <div class="form-group">
+                    <label for="dtnascimento" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Data Nascimento</label>
+                    <div class="col-xs-7 col-sm-3 col-md-2 col-lg-2">
+                        <input type="Date" class="form-control" name="dtnascimento" id="dtnascimento">
+                    </div>
+                </div>
 
-                    <label for="telResidencial" class="labelCampo">Tel Residencial: </label>
-                    <input type="text" name="telResidencial" value="" id="telResidencial" class="campoValores inTelRes" /><br>
+                <div class="form-group">
+                    <label for="cep" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">CEP</label>
+                    <div class="col-xs-7 col-sm-3 col-md-2 col-lg-2">
+                        <input type="text" class="form-control" name="cep" id="cep">
+                    </div>
+                </div>
 
-                    <label for="cpf" class="labelCampo">CPF: </label>
-                    <input type="text" name="cpf" value="" id="cpf" class="campoValores inCpf" />
+                <div class="form-group">
+                    <label for="logradouro" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Logradouro</label>
+                    <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
+                        <input type="text" class="form-control" name="logradouro" id="logradouro">
+                    </div>
+                </div>
 
-                    <label for="rg" class="labelCampo">RG: </label>
-                    <input type="text" name="rg" value="" id="rg" class="campoValores inRg" /><br>
+                <div class="form-group">
+                    <label for="numeroCasa" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Nº</label>
+                    <div class="col-xs-4 col-sm-2 col-md-1 col-lg-1">
+                        <input type="text" class="form-control" name="numeroCasa" id="numeroCasa">
+                    </div>
+                </div>
 
-                    <label for="dtNascimento" class="labelCampo">Data Nascimento: </label>
-                    <input type="date" name="dtnascimento" value="" id="dtNascimento" class="campoValores inNascimento" /><br>
+                <div class="form-group">
+                    <label for="complemento" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Complemento</label>
+                    <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
+                        <input type="text" class="form-control" name="complemento" id="complemento">
+                    </div>
+                </div>
 
-                    <label for="logradouro"  class="labelCampo">Logradouro: </label>
-                    <input type="text" name="logradouro" value="" id="logradouro" class="campoValores inLogradouro" />
+                <div class="form-group">
+                    <label for="bairro" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Bairro</label>
+                    <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
+                        <input type="text" class="form-control" name="bairro" id="bairro">
+                    </div>
+                </div>
 
-                    <label for="numeroCasa"  class="labelCampo">Nº: </label>
-                    <input type="text" name="numeroCasa" value="" id="numeroCasa" class="campoValores inNumCasa" /><br>
+                <div class="form-group">
+                    <label for="cidade" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Cidade</label>
+                    <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
+                        <input type="text" class="form-control" name="cidade" id="cidade">
+                    </div>
+                </div>
 
-                    <label for="complemento"  class="labelCampo">Complemento: </label>
-                    <input type="text" name="complemento" value="" id="complemento" class="campoValores inComplemento" /><br>
+                <div class="form-group">
+                    <label for="cidade" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">UF</label>
+                    <div class="btn-group col-lg-2">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            Estado<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">ES</a></li>
+                            <li><a href="#">MG</a></li>
+                            <li><a href="#">SP</a></li>
+                            <li><a href="#">RJ</a></li>
+                            <li><a href="#">BA</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-                    <label for="bairro"  class="labelCampo">Bairro: </label>
-                    <input type="text" name="bairro" value="" id="bairro" class="campoValores inBairro" />
+                <div class="form-group">
+                    <label for="salario" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Salário</label>
+                    <div class="col-xs-7 col-sm-3 col-md-2 col-lg-2">
+                        <input type="text" class="form-control" name="salario" id="salario">
+                    </div>
+                </div>
 
-                    <label for="cep"  class="labelCampo">CEP: </label>
-                    <input type="text" name="cep" value="" id="cep" class="campoValores inCep" /><br>
 
-                    <label for="cidade"  class="labelCampo">Cidade: </label>
-                    <input type="text" name="cidade" value="" id="cidade" class="campoValores inCidade" />
 
-                    <label for="uf"  class="labelCampo">UF: </label>
-                    <select name="uf" id="uf" class="campoValores inUf">
-                        <option value="ES">ES</option>
-                        <option value="RJ">RJ</option>
-                    </select><br>
 
-                    <label for="salario"  class="labelCampo">Salário: </label>
-                    <input type="text" name="salario" value="" id="salario" class="campoValores inSalario" /><br>
 
-                    <label for="ativo" class="labelCampo">Status:</label>
-                    <span class="textoRadios"><input type="radio" name="status" value="Ativo" id="ativo" />Ativo<br></span>
-                    <span class="textoRadios radioInativo"><input type="radio" name="status" value="Inativo" id="inativo" />Inativo</span> 
-
-                    <fieldset class="quadroLoginFunc">
-                        <legend id="tituloLoginFunc">LOGIN</legend>
-                        <span class="textoCheckBox"><input type="checkbox" name="habilitarLogin" value="habilitarLogin"  id="habilitarLogin"/>Habilitar Login</span><br>
-
-                        <label for="loginFuncionario" class="labelCampo">Login: </label>
-                        <input  type="text" name="loginFuncionario" value="" id="loginFuncionario" class="campoValores inLoginCadastro" disabled="true"/><br>
-
-                        <label for="senhaFuncionario" class="labelCampo">Senha: </label>
-                        <input  type="password" name="senhaFuncionario" value="" id="senhaFuncionario" class="campoValores inSenhaCadastro" disabled="true"/>
-                    </fieldset>
-
-                    <br>
-                    <input type="submit" name="btnFuncionarioCadastrar" value="Cadastrar" class="botoes">
-                    <input type="reset" name="btnFuncionarioLimpar" value="Limpar" class="botoes">
-                </form>
-            </section>
-            <div class="limparFloat"></div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    </div>
+                </div>
+            </form>
         </div>
 
-        <footer class="gradienteRoxo-Lilas" >
-            <p>© Copyright 2014 Copyright.com.br - Todos os direitos reservados</p>
-        </footer>
 
+
+        <!--JANELA DE BUSCA DO FUNCIONARIO - ---------------------------------------------------------------------------------------- -->
+        <div class="modal fade" id="buscarFunc" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title">Buscar Funcionário</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <button type="button" class="btn btn-primary">Janela Modal</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim JANELA DE BUSCA FUNCIONARIO -->
+        <script src="js/jquery-2.1.1.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
