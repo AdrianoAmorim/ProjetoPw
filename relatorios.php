@@ -40,6 +40,55 @@
             </nav> 
         </header>
 
+
+        <?php
+        require_once ('conexao.php');
+
+        $query = "select * from funcionario;";
+
+        $sql_exec = pg_query($query) or die("ERRO: " . pg_last_error());
+        ?>
+
+        <div class="container">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <!-- Titulo da tabela Funcionarios -->
+                <div class="panel bgTitulo panel-default ">
+                    <div class="panel-body">
+                        <div class="centralizarTexto">
+                            <span class="panel-title">Listagem de Funcionarios </pan>   
+                        </div>
+                    </div>
+                </div>
+
+            
+            <!-- TABELA DE LISTAGEM DOS FUNCIONARIOS -->
+                <table class="table table-striped">
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Cargo</th>
+                        <th>Empresa</th>
+                    </tr>
+                    <?php
+                    while ($result = pg_fetch_object($sql_exec)) {
+                        ?>
+                        <tr>
+                            <td><?php echo $result->codfuncionario ?> </td>
+                            <td><?php echo $result->nome ?> </td>
+                            <td><?php echo $result->codcargo ?> </td>
+                            <td><?php echo $result->codempresa ?> </td>
+                        </tr>
+
+                    <?php } ?>
+                </table>
+            </div>
+        </div>
+
+
+
+
+
+
         <script src="js/jquery-2.1.1.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js"></script>
     </body>
