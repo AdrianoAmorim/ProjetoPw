@@ -51,7 +51,7 @@
 
         <div class="container">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <!-- Titulo da tabela Funcionarios -->
+                <!-- Titulo da tabela Funcionarios -->
                 <div class="panel bgTitulo panel-default ">
                     <div class="panel-body">
                         <div class="centralizarTexto">
@@ -60,14 +60,14 @@
                     </div>
                 </div>
 
-            
-            <!-- TABELA DE LISTAGEM DOS FUNCIONARIOS -->
+                <!-- TABELA DE LISTAGEM DOS FUNCIONARIOS -->
                 <table class="table table-striped">
                     <tr>
                         <th>Código</th>
                         <th>Nome</th>
                         <th>Cargo</th>
                         <th>Empresa</th>
+                        <th>Alterar</th>
                     </tr>
                     <?php
                     while ($result = pg_fetch_object($sql_exec)) {
@@ -77,6 +77,10 @@
                             <td><?php echo $result->nome ?> </td>
                             <td><?php echo $result->codcargo ?> </td>
                             <td><?php echo $result->codempresa ?> </td>
+                            <td><a href="AlterarFuncionario.php?cod=<?php echo $result->codfuncionario ?>">
+                                    <i class="glyphicon glyphicon-pencil"></i>
+                                </a>
+                            </td>
                         </tr>
 
                     <?php } ?>
