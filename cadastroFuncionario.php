@@ -30,7 +30,7 @@
                     <!-- Conteudo da nav bar-->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li role="presentation"><a href="#">Home</a></li>
+                            <li role="presentation"><a href="index.php">Home</a></li>
                             <li role="presentation"><a href="cadastroFuncionario.php">Cadastro de Funcionario</a></li>
                             <li role="presentation"><a href="#">Administração</a></li>
                             <li role="presentation"><a href="#">Relatórios</a></li>
