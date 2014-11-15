@@ -63,7 +63,6 @@ $sql_exec1 = pg_query($query1);
 $resultado = pg_fetch_object($sql_exec);
 $resultado1 = pg_fetch_object($sql_exec1);
 
-$novaData = date("d/m/Y", strtotime($resultado->dtnascimento));
 ?>
         
         <!-- ------------------        FORMULARIO DE CADASTRO--------------------------------------------------------------------------- -->
@@ -79,7 +78,7 @@ $novaData = date("d/m/Y", strtotime($resultado->dtnascimento));
                                     <a href="#" ><img src="images/iconPqBusca.png" alt="Buscar"/></a>
                                 </button>
                             </span>
-                            <input type="text" class="form-control" name="codFunc" id="codFunc" valeu="<?php echo $resultado1->codfuncionario ?>">
+                            <input type="text" class="form-control" name="codFunc" id="codFunc" valeu="<?php echo $resultado->codfuncionario ?>">
                         </div>
                     </div>
                 </div>
@@ -157,7 +156,7 @@ $novaData = date("d/m/Y", strtotime($resultado->dtnascimento));
                 <div class="form-group">
                     <label for="dtnascimento" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Data Nascimento</label>
                     <div class="col-xs-7 col-sm-3 col-md-2 col-lg-2">
-                        <input type="Date" class="form-control" name="dtnascimento" id="dtnascimento" value="<?php echo $novaData ?>">
+                        <input type="Date" class="form-control" name="dtnascimento" id="dtnascimento" value="<?php echo $resultado->dtnascimento ?>">
                     </div>
                 </div>
 
@@ -192,7 +191,7 @@ $novaData = date("d/m/Y", strtotime($resultado->dtnascimento));
                 <div class="form-group">
                     <label for="bairro" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Bairro</label>
                     <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
-                        <input type="text" class="form-control" name="bairro" id="bairro" <?php echo $resultado1->bairro ?>>
+                        <input type="text" class="form-control" name="bairro" id="bairro" value="<?php echo $resultado1->bairro ?>">
                     </div>
                 </div>
 
