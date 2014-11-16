@@ -42,10 +42,10 @@
 
         <!-- Titulo da pagina -->
         <div class="container">
-            <div class="panel bgTitulo panel-default ">
-                <div class="panel-body">
+            <div class="panel panel-default ">
+                <div class="panel-body bg-primary">
                     <div class="centralizarTexto">
-                        <span class="panel-title">CADASTRO DE FUNCIONARIO</span>   
+                        <span class="panel-title">ALTERAR CADASTRO DE FUNCIONARIO</span>   
                     </div>
                 </div>
             </div>
@@ -65,9 +65,9 @@ $resultado1 = pg_fetch_object($sql_exec1);
 
 ?>
         
-        <!-- ------------------        FORMULARIO DE CADASTRO--------------------------------------------------------------------------- -->
+        <!-- ------------------        FORMULARIO DE Alteração--------------------------------------------------------------------------- -->
         <div class="container">
-            <form name="formCadFuncionario" action="procCadFuncionario.php" method="POST" class="form-horizontal" role="form">
+            <form name="formAltFuncionario" action="procAltFuncionario.php" method="POST" class="form-horizontal" role="form">
 
                 <div class="form-group">
                     <label for="codFunc" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Código Func</label>
@@ -224,9 +224,6 @@ $resultado1 = pg_fetch_object($sql_exec1);
                         <input type="text" class="form-control" name="salario" id="salario" value="<?php echo $resultado->salario ?>">
                     </div>
                 </div>
-
-
-
 
 
                 <div class="form-group">

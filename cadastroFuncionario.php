@@ -39,11 +39,10 @@
                 </div>
             </nav> 
         </header>
-
         <!-- Titulo da pagina -->
         <div class="container">
-            <div class="panel bgTitulo panel-default ">
-                <div class="panel-body">
+            <div class="panel panel-default ">
+                <div class="panel-body bg-primary">
                     <div class="centralizarTexto">
                         <span class="panel-title">CADASTRO DE FUNCIONARIO</span>   
                     </div>
