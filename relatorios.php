@@ -50,9 +50,9 @@
         ?>
 
         <div class="container">
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <!-- Titulo da tabela Funcionarios -->
-                <div class="panel panel-default ">
+                <div class="panel panel-default">
                     <div class="panel-body bg-primary">
                         <div class="centralizarTexto">
                             <span class="panel-title">Listagem de Funcionarios </pan>   
@@ -90,7 +90,9 @@
 
 
 
-
+        <footer class="bgFooter panel-footer">
+            <p class="textoBranco centralizarTexto">Todos os Direitos reservados</p>
+        </footer>
 
 
         <script src="js/jquery-2.1.1.js" type="text/javascript"></script>

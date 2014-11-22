@@ -51,51 +51,29 @@
             </div>
         </div>
         <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
-<?php 
-require_once 'conexao.php';
+        <?php
+        require_once 'conexao.php';
 
-$codFuncionario = $_GET['cod'];
-$query = "SELECT * FROM funcionario WHERE codfuncionario = $codFuncionario";
-$query1 = "SELECT * FROM enderecofuncionario WHERE codfuncionario = $codFuncionario";
-$sql_exec = pg_query($query);
-$sql_exec1 = pg_query($query1);
+        $codFuncionario = $_GET['cod'];
+        $query = "SELECT * FROM funcionario WHERE codfuncionario = $codFuncionario;";
+        $query1 = "SELECT * FROM enderecofuncionario WHERE codfuncionario = $codFuncionario;";
+        $sql_exec = pg_query($query);
+        $sql_exec1 = pg_query($query1);
 
-$resultado = pg_fetch_object($sql_exec);
-$resultado1 = pg_fetch_object($sql_exec1);
+        $resultado = pg_fetch_object($sql_exec);
+        $resultado1 = pg_fetch_object($sql_exec1);
+        ?>
 
-?>
-        
         <!-- ------------------        FORMULARIO DE Alteração--------------------------------------------------------------------------- -->
         <div class="container">
             <form name="formAltFuncionario" action="procAltFuncionario.php" method="POST" class="form-horizontal" role="form">
 
                 <div class="form-group">
-                    <label for="codFunc" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Código Func</label>
-                    <div class="col-xs-7 col-sm-3 col-md-2">
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default tiraPadding" type="button">
-                                    <a href="#" ><img src="images/iconPqBusca.png" alt="Buscar"/></a>
-                                </button>
-                            </span>
-                            <input type="text" class="form-control" name="codFunc" id="codFunc" valeu="<?php echo $resultado->codfuncionario ?>">
-                        </div>
+                    <div class="col-xs-7 col-sm-3 col-md-2">     
+                        <input type="hidden" class="form-control" name="codFunc" id="codFunc" value="<?php echo $resultado->codfuncionario ?>">
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="codEmpresa" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Código Empresa</label>
-                    <div class="col-xs-7 col-sm-3 col-md-2">
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default tiraPadding" type="button">
-                                    <a href="#" ><img src="images/iconPqBusca.png" alt="Buscar"/></a>
-                                </button>
-                            </span>
-                            <input type="text" class="form-control" name="codEmpresa" id="codEmpresa" value="<?php echo $resultado->codempresa ?>">
-                        </div>
-                    </div>
-                </div>
 
                 <div class="form-group">
                     <label for="codCargo" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Código Cargo</label>
@@ -120,7 +98,7 @@ $resultado1 = pg_fetch_object($sql_exec1);
                                     <a data-toggle="modal" href="#buscarFunc" role="button"><img src="images/iconPqBusca.png" alt="Buscar"/></a>
                                 </button>
                             </span>
-                            <input type="text" class="form-control" name="nomeFunc" id="nomeFunc" value="<?php echo $resultado->nome?>">
+                            <input type="text" class="form-control" name="nomeFunc" id="nomeFunc" value="<?php echo $resultado->nome ?>">
                         </div>
                     </div>
                 </div>
@@ -136,6 +114,13 @@ $resultado1 = pg_fetch_object($sql_exec1);
                     <label for="telResidencial" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Tel Residencial</label>
                     <div class="col-xs-7 col-sm-3 col-md-2 col-lg-2">
                         <input type="tel" class="form-control" name="telResidencial" id="telResidencial" value="<?php echo $resultado->telfixo ?>">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">E-mail</label>
+                    <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+                        <input type="email" class="form-control" name="email" id="email" value="<?php echo $resultado->email ?>">
                     </div>
                 </div>
 
@@ -253,6 +238,11 @@ $resultado1 = pg_fetch_object($sql_exec1);
             </div>
         </div>
         <!-- Fim JANELA DE BUSCA FUNCIONARIO -->
+
+
+        <footer class="bgFooter panel-footer">
+            <p class="textoBranco centralizarTexto">Todos os Direitos reservados</p>
+        </footer>
         <script src="js/jquery-2.1.1.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js"></script>
     </body>

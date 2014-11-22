@@ -4,11 +4,16 @@ body{
 .bgTitulo{
     background-color: #c7d9ca;
 }
-
+.textoBranco{
+ color: white;   
+}
 .centralizarTexto{
     text-align: center;
 }
 
+.bgFooter{
+    background-color: #724073;
+}
 .tiraPadding{
     padding: 0;
     margin: 0;

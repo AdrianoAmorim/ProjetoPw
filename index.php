@@ -32,13 +32,18 @@
                         <ul class="nav navbar-nav">
                             <li role="presentation"><a href="index.php">Home</a></li>
                             <li role="presentation"><a href="cadastroFuncionario.php">Cadastro de Funcionario</a></li>
-                            <li role="presentation"><a href="#">Administração</a></li>
+                            <li role="presentation"><a href="administracao.php">Administração</a></li>
                             <li role="presentation"><a href="relatorios.php">Relatórios</a></li>
                         </ul>
                     </div>  
                 </div>
             </nav> 
         </header>
+
+        <footer class="bgFooter panel-footer">
+                <p class="textoBranco centralizarTexto">Todos os Direitos reservados</p>
+        </footer>
+
 
         <script src="js/jquery-2.1.1.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js"></script>

@@ -56,34 +56,6 @@
             <form name="formCadFuncionario" action="procCadFuncionario.php" method="POST" class="form-horizontal" role="form">
 
                 <div class="form-group">
-                    <label for="codFunc" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Código Func</label>
-                    <div class="col-xs-7 col-sm-3 col-md-2">
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default tiraPadding" type="button">
-                                    <a href="#" ><img src="images/iconPqBusca.png" alt="Buscar"/></a>
-                                </button>
-                            </span>
-                            <input type="text" class="form-control" name="codFunc" id="codFunc">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="codEmpresa" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Código Empresa</label>
-                    <div class="col-xs-7 col-sm-3 col-md-2">
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default tiraPadding" type="button">
-                                    <a href="#" ><img src="images/iconPqBusca.png" alt="Buscar"/></a>
-                                </button>
-                            </span>
-                            <input type="text" class="form-control" name="codEmpresa" id="codEmpresa">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
                     <label for="codCargo" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Código Cargo</label>
                     <div class="col-xs-7 col-sm-3 col-md-2">
                         <div class="input-group">
@@ -125,6 +97,13 @@
                     </div>
                 </div>
 
+                 <div class="form-group">
+                    <label for="email" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">E-mail</label>
+                    <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+                        <input type="email" class="form-control" name="email" id="email">
+                    </div>
+                </div>
+                
                 <div class="form-group">
                     <label for="cpf" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">CPF</label>
                     <div class="col-xs-7 col-sm-3 col-md-2 col-lg-2">
@@ -240,6 +219,10 @@
                 </div>
             </div>
         </div>
+        
+        <footer class="bgFooter panel-footer">
+                <p class="textoBranco centralizarTexto">Todos os Direitos reservados</p>
+        </footer>
         <!-- Fim JANELA DE BUSCA FUNCIONARIO -->
         <script src="js/jquery-2.1.1.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js"></script>
