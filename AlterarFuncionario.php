@@ -53,10 +53,12 @@
         <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
         <?php
         require_once 'conexao.php';
-
-        $codFuncionario = $_GET['cod'];
-        $query = "SELECT * FROM funcionario WHERE codfuncionario = $codFuncionario;";
-        $query1 = "SELECT * FROM enderecofuncionario WHERE codfuncionario = $codFuncionario;";
+        
+        $cod = base64_decode($_GET['cod']);
+        $descodificado = (($cod *(-1))-9) /830;
+        
+        $query = "SELECT * FROM funcionario WHERE codfuncionario = $descodificado;";
+        $query1 = "SELECT * FROM enderecofuncionario WHERE codfuncionario = $descodificado;";
         $sql_exec = pg_query($query);
         $sql_exec1 = pg_query($query1);
 
@@ -67,14 +69,9 @@
         <!-- ------------------        FORMULARIO DE Alteração--------------------------------------------------------------------------- -->
         <div class="container">
             <form name="formAltFuncionario" action="procAltFuncionario.php" method="POST" class="form-horizontal" role="form">
-
-                <div class="form-group">
-                    <div class="col-xs-7 col-sm-3 col-md-2">     
-                        <input type="hidden" class="form-control" name="codFunc" id="codFunc" value="<?php echo $resultado->codfuncionario ?>">
-                    </div>
-                </div>
-
-
+                        
+                <input type="hidden" class="form-control" name="codFunc" id="codFunc" value="<?php echo $descodificado ?>">
+                  
                 <div class="form-group">
                     <label for="codCargo" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Código Cargo</label>
                     <div class="col-xs-7 col-sm-3 col-md-2">
@@ -92,14 +89,7 @@
                 <div class="form-group">
                     <label for="nomeFunc" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Nome</label>
                     <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default tiraPadding" type="button">
-                                    <a data-toggle="modal" href="#buscarFunc" role="button"><img src="images/iconPqBusca.png" alt="Buscar"/></a>
-                                </button>
-                            </span>
-                            <input type="text" class="form-control" name="nomeFunc" id="nomeFunc" value="<?php echo $resultado->nome ?>">
-                        </div>
+                            <input type="text" class="form-control" name="nomeFunc" id="nomeFunc" value="<?php echo $resultado->nome ?>">                 
                     </div>
                 </div>
 
@@ -189,17 +179,13 @@
 
                 <div class="form-group">
                     <label for="cidade" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">UF</label>
-                    <div class="btn-group col-lg-2">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                            Estado<span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">ES</a></li>
-                            <li><a href="#">MG</a></li>
-                            <li><a href="#">SP</a></li>
-                            <li><a href="#">RJ</a></li>
-                            <li><a href="#">BA</a></li>
-                        </ul>
+                    <div class="col-xs-5 col-sm-2 col-md-2 col-lg-2">
+                        <select class="form-control" id="cidade" name="uf">
+                            <option <?php echo $resultado1->uf == 'RJ' ? 'selected' : ''; ?> >RJ</option>
+                            <option <?php echo $resultado1->uf == 'ES' ? 'selected' : ''; ?> >ES</option>
+                            <option <?php echo $resultado1->uf == 'MG' ? 'selected' : ''; ?> >MG</option>
+                            <option <?php echo $resultado1->uf == 'SP' ? 'selected' : ''; ?> >SP</option>
+                        </select>
                     </div>
                 </div>
 
@@ -210,37 +196,30 @@
                     </div>
                 </div>
 
+               <div class="form-group">
+                    <label for="status" class="col-xs-3 col-sm-2 col-md-2 col-lg-2 control-label">Status</label>
+                    <div class="col-xs-6 col-lg-3">
+                        <div class="checkbox">
+                            <label>
+                                <input name="status" type="radio" value="t"> Ativo
+                            </label>
+                            <br />
+                            <label>
+                                <input name="status"type="radio" value="f"> Inativo
+                            </label>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">Alterar</button>
+                        <button type="submit" class="btn textoBranco bgBtnLilas">Alterar</button>
                     </div>
                 </div>
             </form>
         </div>
-
-
-
-
-        <!--JANELA DE BUSCA DO FUNCIONARIO - ---------------------------------------------------------------------------------------- -->
-        <div class="modal fade" id="buscarFunc" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title">Buscar Funcionário</h4>
-                    </div>
-
-                    <div class="modal-body">
-                        <button type="button" class="btn btn-primary">Janela Modal</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Fim JANELA DE BUSCA FUNCIONARIO -->
-
-
-        <footer class="bgFooter panel-footer">
+        
+        <footer class="bgFooter panel-footer navbar-fixed-bottom">
             <p class="textoBranco centralizarTexto">Todos os Direitos reservados</p>
         </footer>
         <script src="js/jquery-2.1.1.js" type="text/javascript"></script>

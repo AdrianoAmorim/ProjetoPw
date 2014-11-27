@@ -1,11 +1,17 @@
 body{
     margin-top: 60px;
 }
+.bgBtnLilas{
+    background-color: #9d8bbc;
+}
+.bgVerdeClaro{
+    background-color: #c7d9ca;  
+}
 .bgTitulo{
     background-color: #c7d9ca;
 }
 .textoBranco{
- color: white;   
+    color: white;   
 }
 .centralizarTexto{
     text-align: center;
@@ -32,5 +38,9 @@ div.container > div.panel.panel-default{
 div.container  div.panel-body > div.centralizarTexto > span {
     font-weight: bold;
     color: black;
+}
+
+form.form-horizontal > div#buscarFuncionario div.well {
+    border: none;
 }
 

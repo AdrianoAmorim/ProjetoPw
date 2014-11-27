@@ -12,95 +12,49 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/personalizacao.css" rel="stylesheet" type="text/css"/>
         <script src="js/jquery-2.1.1.js" type="text/javascript"></script>
-        <script src="js/bootstrap.min.js"></script>
+
     </head>
 
-    <body> 
-        <header>
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#">Logo</a>
-                    </div>
+    <body id="tudo"> 
+        <div class="container">
 
-                    <!-- Conteudo da nav bar-->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li role="presentation"><a href="index.php">Home</a></li>
-                            <li role="presentation"><a href="cadastroFuncionario.php">Cadastro de Funcionario</a></li>
-                            <li role="presentation"><a href="#">Administração</a></li>
-                            <li role="presentation"><a href="relatorios.php">Relatórios</a></li>
-                        </ul>
-                    </div>  
+
+            <div class="col-xs-12">
+                <h1>Consultar CEP</h1>
+                <hr />
+
+                <div class="input-group">
+                    <input type="text" class="form-control" name="cep" id="txtCep" required>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" id="btnBuscarCep" type="button">Buscar</button>
+                    </span>
                 </div>
-            </nav> 
-        </header>
-
-        <h1>Usando JQuery</h1>
-
-        <ul>
-            <li>
-               <header>Titulo 1</header>
-               <p class="oculto">
-                
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-
+                <p id="dadosCep">
+                    <span>cep <b></b></span><br>
+                    <span>Logradouro <b></b></span><br>
+                    <span>Bairro <b></b></span><br>
+                    <span>Cidade/UF <b></b></span><br>
                 </p>
-            </li>
-            <li>
-               <header>Titulo 2</header>
-               <p class="oculto">
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                </p>
-            </li>
-            <li>
-               <header>Titulo 3</header>
-               <p class="oculto">
-                
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
-                asdasd ad as das d asd asdasdaadasdasdadadasdasdasdasfsdfhsdfbjshdfgj
 
-                </p>
-            </li>
-        </ul>
 
+            </div>
+
+
+        </div>
         <script>
-            $(document).ready(function () {
-                $("p").hide();
-            });
-
-            $("header").click(function () {
-                $(this).next().slideToggle(2000, function (){
-                    $(this).css("color","#f00");
-                });
-            });
+            $(#btnBuscarCep).click(function (){
+            var url = "http://apps.widenet.com.br/busca-cep/api/cep/" +
+                    $(#txtCep).val() + ".json";
+                    $.getJSON((url, function (data) {
+                        $("#dadosCep span b:eq(0)").html(data.code);
+                        $("#dadosCep span b:eq(1)").html(data.address);
+                        $("#dadosCep span b:eq(2)").html(data.district);
+                        $("#dadosCep span b:eq(3)").html(data.city + "/" + data.state);
+                    }));
+            })
         </script>
 
+
+        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>

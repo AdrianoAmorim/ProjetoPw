@@ -19,6 +19,7 @@ if ($_POST) {
     $bairro = $_POST['bairro'];
     $cep = $_POST['cep'];
     $cidade = $_POST['cidade'];
+    $uf = $_POST['uf'];
 
 
 
@@ -26,7 +27,7 @@ if ($_POST) {
             . "VALUES ('$codCargo','1','$nomeFunc','$telCel','$telFixo','$salario','1','$email','$cpf','$rg','$dataNova')";
 
     $query2 = "INSERT INTO enderecoFuncionario(codCargo, codEmpresa, logradouro, numero, complemento, bairro, cep, cidade, uf) "
-            . "VALUES ('$codCargo','1','$logradouro','$numCasa','$complemento','$bairro','$cep','$cidade','ES');";
+            . "VALUES ('$codCargo','1','$logradouro','$numCasa','$complemento','$bairro','$cep','$cidade','$uf');";
 
     $exec_query = pg_query($query) or die("Erro:" . pg_last_error());
     $exec_query2 = pg_query($query2) or die("Erro:" . pg_last_error());
