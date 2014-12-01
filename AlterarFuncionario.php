@@ -53,10 +53,10 @@
         <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
         <?php
         require_once 'conexao.php';
-        
+
         $cod = base64_decode($_GET['cod']);
-        $descodificado = (($cod *(-1))-9) /830;
-        
+        $descodificado = (($cod * (-1)) - 9) / 830;
+
         $query = "SELECT * FROM funcionario WHERE codfuncionario = $descodificado;";
         $query1 = "SELECT * FROM enderecofuncionario WHERE codfuncionario = $descodificado;";
         $sql_exec = pg_query($query);
@@ -67,11 +67,11 @@
         ?>
 
         <!-- ------------------        FORMULARIO DE Alteração--------------------------------------------------------------------------- -->
-        <div class="container">
+        <div class="container" id="containerPrincipal">
             <form name="formAltFuncionario" action="procAltFuncionario.php" method="POST" class="form-horizontal" role="form">
-                        
+
                 <input type="hidden" class="form-control" name="codFunc" id="codFunc" value="<?php echo $descodificado ?>">
-                  
+
                 <div class="form-group">
                     <label for="codCargo" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Código Cargo</label>
                     <div class="col-xs-7 col-sm-3 col-md-2">
@@ -89,7 +89,7 @@
                 <div class="form-group">
                     <label for="nomeFunc" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Nome</label>
                     <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
-                            <input type="text" class="form-control" name="nomeFunc" id="nomeFunc" value="<?php echo $resultado->nome ?>">                 
+                        <input type="text" class="form-control" name="nomeFunc" id="nomeFunc" value="<?php echo $resultado->nome ?>">                 
                     </div>
                 </div>
 
@@ -196,16 +196,16 @@
                     </div>
                 </div>
 
-               <div class="form-group">
+                <div class="form-group">
                     <label for="status" class="col-xs-3 col-sm-2 col-md-2 col-lg-2 control-label">Status</label>
                     <div class="col-xs-6 col-lg-3">
                         <div class="checkbox">
                             <label>
-                                <input name="status" type="radio" value="t"> Ativo
+                                <input name="status" type="radio" value="t" <?php echo $resultado->status == 't' ? ' checked' : ''; ?>> Ativo
                             </label>
                             <br />
                             <label>
-                                <input name="status"type="radio" value="f"> Inativo
+                                <input name="status"type="radio" value="f" <?php echo $resultado->status == 'f' ? ' checked' : ''; ?>> Inativo
                             </label>
                         </div>
                     </div>
@@ -218,8 +218,8 @@
                 </div>
             </form>
         </div>
-        
-        <footer class="bgFooter panel-footer navbar-fixed-bottom">
+
+        <footer class="bgFooter navbar-fixed-bottom">
             <p class="textoBranco centralizarTexto">Todos os Direitos reservados</p>
         </footer>
         <script src="js/jquery-2.1.1.js" type="text/javascript"></script>

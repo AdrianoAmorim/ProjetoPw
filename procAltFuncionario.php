@@ -20,9 +20,10 @@ $bairro = $_POST['bairro'];
 $cidade = $_POST['cidade'];
 $uf = $_POST['uf'];
 $salario = $_POST['salario'];
+$status = $_POST['status'];
 
 $query = "UPDATE funcionario SET codCargo = '$codCargo',codEmpresa = 1, nome= '$nome',telcel='$telCel',telfixo='$telFixo',"
-        . " cpf='$cpf',rg='$rg',dtnascimento='$dtNascimento',salario='$salario', status='1', email = '$email' WHERE codfuncionario = '$codFuncionario';";
+        . " cpf='$cpf',rg='$rg',dtnascimento='$dtNascimento',salario='$salario', status='$status', email = '$email' WHERE codfuncionario = '$codFuncionario';";
 
 $query2 = "UPDATE enderecofuncionario SET codCargo = '$codCargo',codEmpresa = '1',logradouro='$logradouro',numero='$numero',complemento='$complemento',"
         . " bairro= '$bairro', cep='$cep', cidade='$cidade', uf='$uf' WHERE codfuncionario = '$codFuncionario';";

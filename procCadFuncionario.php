@@ -20,11 +20,12 @@ if ($_POST) {
     $cep = $_POST['cep'];
     $cidade = $_POST['cidade'];
     $uf = $_POST['uf'];
+    $status = $_POST['status'];
 
 
 
     $query = "INSERT INTO funcionario(codCargo, codEmpresa, nome, telCel, telFixo, salario, status, email, cpf, rg, dtNascimento) "
-            . "VALUES ('$codCargo','1','$nomeFunc','$telCel','$telFixo','$salario','1','$email','$cpf','$rg','$dataNova')";
+            . "VALUES ('$codCargo','1','$nomeFunc','$telCel','$telFixo','$salario','$status','$email','$cpf','$rg','$dataNova')";
 
     $query2 = "INSERT INTO enderecoFuncionario(codCargo, codEmpresa, logradouro, numero, complemento, bairro, cep, cidade, uf) "
             . "VALUES ('$codCargo','1','$logradouro','$numCasa','$complemento','$bairro','$cep','$cidade','$uf');";

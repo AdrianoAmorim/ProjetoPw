@@ -11,6 +11,7 @@
         <title>Usando Bootstrap</title>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/personalizacao.css" rel="stylesheet" type="text/css"/>
+        <script src="js/script.js" type="text/javascript"></script>
     </head>
 
     <body> 
@@ -45,8 +46,9 @@
         require_once ('conexao.php');
 
         $query = "select * from funcionario ORDER BY nome;";
-
+        $queryCargo = "select * from cargo ORDER BY descricao;";
         $sql_exec = pg_query($query) or die("ERRO: " . pg_last_error());
+        $sql_exec2 = pg_query($queryCargo) or die("ERRO: " . pg_last_error());
         ?>
 
         <div class="container">
@@ -60,7 +62,35 @@
                     </div>
                 </div>
 
+                <div class="panel" id="opcoesTabela">
+                    <div class="form-horizontal">
+
+                        <div class="form-group ">
+                            <label for="opcoesTabelaCargo" class="control-label col-xs-12 col-sm-2 col-md-2 col-lg-2">Cargo</label>
+                            <div class="col-xs-7 col-sm-3 col-md-2 col-lg-3">
+                                <select class="form-control" id="opcoesTabelaCargo" name="opcoesTabelaCargo">
+                                    <?php
+                                    while ($result1 = pg_fetch_object($sql_exec2)) {
+                                        echo "<option> $result1->descricao</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+
+                            <label for="telCelular" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">Status</label>
+                            <div class="col-xs-7 col-sm-3 col-md-2 col-lg-3" >
+                                <select class="form-control" id="opcoesTabelaCargo" name="opcoesTabelaCargo">
+                                    <option>Ativo</option>
+                                    <option>Inativo</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
                 <!-- TABELA DE LISTAGEM DOS FUNCIONARIOS -->
+
                 <table class="table table-striped">
                     <tr>
 
@@ -91,7 +121,7 @@
 
 
 
-        <footer class="bgFooter panel-footer navbar-fixed-bottom">
+        <footer class="bgFooter navbar-fixed-bottom">
             <p class="textoBranco centralizarTexto">Todos os Direitos reservados</p>
         </footer>
 

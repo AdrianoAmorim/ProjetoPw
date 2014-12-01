@@ -1,26 +1,37 @@
 $(document).ready(function () {
+    carregarTabelaMaiorVendedor();
     $("div#buscarFuncionario").hide();
 
-    $(function () {
-        $.get("gerarMaiorVendedor.php", null, function (data) {
-            $("#tabelaFuncionarios").html(data);
-            
-        })
-    
-    
-    })
-
-
-
 });
+//habilita e desabilita a busca pelo funcionario no cadastro
+
 function habilitarBusca() {
     $("div#buscarFuncionario").slideToggle();
 }
+
+
+//faz uma solicitação com ajax e pega os dados para preencher tabela de vendas 
+//de todos os funcionarios
+function carregarTabelaMaiorVendedor() {
+    $.get("gerarMaiorVendedor.php", null, function (data) {
+        $("#tabelaFuncionarios").html(data);
+    });
+
+}
+
+
+function teste() {
+    $.get("procDadosGrafico.php", null, function (data) {
+  
+
+    });
+}
+
 //Criacao do grafico tela Inicio
 $(function () {
     //mudando o tema do grafico
     Highcharts.createElement('link', {
-        href: 'http://fonts.googleapis.com/css?family=Unica+One',
+        //href: 'http://fonts.googleapis.com/css?family=Unica+One',
         rel: 'stylesheet',
         type: 'text/css'
     }, null, document.getElementsByTagName('head')[0]);
@@ -235,7 +246,7 @@ $(function () {
         xAxis: {
             type: 'category',
             labels: {
-                rotation: -45,
+                rotation: -40,
                 style: {
                     fontSize: '13px',
                     fontFamily: 'Verdana, sans-serif'
@@ -263,18 +274,18 @@ $(function () {
         series: [{
                 name: 'Mes',
                 data: [
-                    ['Jan', 23.7],
-                    ['Fev', 16.1],
-                    ['Mar', 14.28],
-                    ['Abr', 14.0],
-                    ['Mai', 12.5],
-                    ['Jun', 12.1],
-                    ['Jul', 11.8],
-                    ['Ago', 11.7],
-                    ['Set', 11.1],
-                    ['Out', 11.1],
-                    ['Nov', 10.5],
-                    ['Dez', 10.4],
+                    ['Jan', 80],
+                    ['Fev', 50],
+                    ['Mar', 20],
+                    ['Abr', 50],
+                    ['Mai', 70],
+                    ['Jun', 80],
+                    ['Jul', 70],
+                    ['Ago', 80],
+                    ['Set', 100],
+                    ['Out', 250],
+                    ['Nov', 300],
+                    ['Dez', 200]
                 ],
                 dataLabels: {
                     enabled: true,
@@ -282,7 +293,7 @@ $(function () {
                     color: '#FFFFFF',
                     align: 'right',
                     x: 4,
-                    y: 10,
+                    y: -35,
                     style: {
                         fontSize: '13px',
                         fontFamily: 'Verdana, sans-serif',

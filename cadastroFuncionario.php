@@ -54,7 +54,7 @@
         <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
 
         <!-- ------------------        FORMULARIO DE CADASTRO--------------------------------------------------------------------------- -->
-        <div class="container">
+        <div class="container" id="containerPrincipal">
             <form name="formCadFuncionario" action="procCadFuncionario.php" method="POST" class="form-horizontal" role="form">
 
                 <div class="form-group">
@@ -107,7 +107,6 @@
                                 <div class="col-lg-9">
                                     <select class="form-control" name="buscaFuncionariolistResult" multiple size="8">
                                         <option></option>
-
                                     </select>
                                 </div>
                             </div>
@@ -226,11 +225,11 @@
                     <div class="col-xs-6 col-lg-3">
                         <div class="checkbox">
                             <label>
-                                <input name="status" type="radio" value="t"> Ativo
+                                <input name="status" type="radio" value="T"> Ativo
                             </label>
                             <br />
                             <label>
-                                <input name="status"type="radio" value="f"> Inativo
+                                <input name="status"type="radio" value="F"> Inativo
                             </label>
                         </div>
                     </div>
@@ -238,13 +237,13 @@
 
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn textoBranco bgBtnLilas">Cadastrar</button>
+                        <button type="submit" class="btn textoBranco bgBtnLilas" >Cadastrar</button>
                     </div>
                 </div>
             </form>
         </div>
 
-        <footer class="bgFooter panel-footer navbar-fixed-bottom">
+        <footer class="bgFooter navbar-fixed-bottom">
             <p class="textoBranco centralizarTexto">Todos os Direitos reservados</p>
         </footer>
 
