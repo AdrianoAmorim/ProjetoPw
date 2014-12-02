@@ -1,10 +1,9 @@
 $(document).ready(function () {
-    carregarTabelaMaiorVendedor();
     $("div#buscarFuncionario").hide();
 
 });
-//habilita e desabilita a busca pelo funcionario no cadastro
 
+//habilita e desabilita a busca pelo funcionario no cadastro
 function habilitarBusca() {
     $("div#buscarFuncionario").slideToggle();
 }
@@ -13,8 +12,10 @@ function habilitarBusca() {
 //faz uma solicitação com ajax e pega os dados para preencher tabela de vendas 
 //de todos os funcionarios
 function carregarTabelaMaiorVendedor() {
-    $.get("gerarMaiorVendedor.php", null, function (data) {
-        $("#tabelaFuncionarios").html(data);
+    var dataEscolhida = $("input[name='opcoesTabelaMaiorVendedorData']").val();
+
+    $.get("gerarMaiorVendedor.php", {data: dataEscolhida}, function (dados) {
+        $("#tabelaFuncionarios").html(dados);
     });
 
 }
@@ -22,13 +23,14 @@ function carregarTabelaMaiorVendedor() {
 
 function teste() {
     $.get("procDadosGrafico.php", null, function (data) {
-  
 
+        carregarGrafico(data);
     });
 }
 
 //Criacao do grafico tela Inicio
-$(function () {
+function carregarGrafico(dados) {
+
     //mudando o tema do grafico
     Highcharts.createElement('link', {
         //href: 'http://fonts.googleapis.com/css?family=Unica+One',
@@ -273,20 +275,9 @@ $(function () {
         },
         series: [{
                 name: 'Mes',
-                data: [
-                    ['Jan', 80],
-                    ['Fev', 50],
-                    ['Mar', 20],
-                    ['Abr', 50],
-                    ['Mai', 70],
-                    ['Jun', 80],
-                    ['Jul', 70],
-                    ['Ago', 80],
-                    ['Set', 100],
-                    ['Out', 250],
-                    ['Nov', 300],
-                    ['Dez', 200]
-                ],
+                //os dados tem q entrar aki depois do data:
+                data:
+                     dados,
                 dataLabels: {
                     enabled: true,
                     rotation: -90,
@@ -303,6 +294,7 @@ $(function () {
             }]
 
     });
-});
+}
+;
 //------------------------------------------------------------------------------------------------------
 

@@ -77,7 +77,7 @@
                                 </select>
                             </div>
 
-                            <label for="telCelular" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">Status</label>
+                            <label for="opcoesTabelaCargo" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">Status</label>
                             <div class="col-xs-7 col-sm-3 col-md-2 col-lg-3" >
                                 <select class="form-control" id="opcoesTabelaCargo" name="opcoesTabelaCargo">
                                     <option>Ativo</option>

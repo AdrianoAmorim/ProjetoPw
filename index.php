@@ -14,7 +14,7 @@
 
     </head>
 
-    <body > 
+    <body onload="javascript:carregarTabelaMaiorVendedor()" > 
         <header>
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
                 <div class="container-fluid">
@@ -61,7 +61,8 @@
                         <div class="form-group ">
                             <label for="opcoesTabelaMaiorVendedorData" class="control-label col-xs-12 col-sm-2 col-md-2 col-lg-2">Data</label>
                             <div class="col-xs-8 col-sm-3 col-md-2 col-lg-4">
-                                <input type="date" class="form-control" name="opcoesTabelaMaiorVendedorData" id="codCargo" required>
+                                <input type="date" class="form-control" name="opcoesTabelaMaiorVendedorData" id="codCargo" 
+                                       onchange="javascript:carregarTabelaMaiorVendedor()">
                             </div>
 
                         </div>
