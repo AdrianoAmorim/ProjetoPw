@@ -11,9 +11,10 @@
         <title>Inicio</title>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/personalizacao.css" rel="stylesheet" type="text/css"/>
+
     </head>
 
-    <body> 
+    <body onload="javascript:carregarTabelaMaiorVendedor()" > 
         <header>
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
                 <div class="container-fluid">
@@ -39,18 +40,8 @@
                 </div>
             </nav> 
         </header>
-        <?php
-        require_once 'conexao.php';
 
-        $query = "select f.nome ,count(*) as qtd,  sum(v.totalliquido) as Soma
-                 from venda v
-                 inner join funcionario f on v.codfuncionario = f.codfuncionario
-                 group by f.nome
-                 order by soma desc; ";
-
-        $query_exec = pg_query($query);
-        ?>
-        <div class="container">
+        <div class="container" id="containerPrincipal">
 
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <!-- Titulo da tabela de Funcionario/Venda -->
@@ -63,40 +54,45 @@
                 </div>
                 <!-- FIM TITULO DA TABELA DE FUNCIONARIO/VENDA -->
 
-                <div class="bgVerdeClaro panel">
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <label for="dtnascimento" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Data </label>
-                            <div class="col-xs-7 col-sm-3 col-md-2 col-lg-6">
-                                <input type="Date" class="form-control" name="dtnascimento" id="dtnascimento">
+                <!-- OPCOES DE PREENCHIMENTO DA TABELA DE MAIOR VENDEDOR -->
+                <div class="panel" id="opcoesTabela">
+                    <div class="form-horizontal">
+
+                        <div class="form-group ">
+                            <label for="opcoesTabelaMaiorVendedorDtInicial" class="control-label col-xs-12 col-sm-1 col-md-1 col-lg-1">De </label>
+                            <div class="col-xs-8 col-sm-3 col-md-4 col-lg-4">
+                                <input type="date" class="form-control" name="opcoesTabelaMaiorVendedorDtInicial" id="opTabelaMaiorVendedorDtInicial">
+                            </div>
+
+                            <label for="opcoesTabelaMaiorVendedorDtFinal" class="control-label col-xs-12 col-sm-1 col-md-1 col-lg-1">Até </label>
+                            <div class="col-xs-8 col-sm-3 col-md-4 col-lg-4">
+                                <input type="date" class="form-control" name="opcoesTabelaMaiorVendedorDtFinal" id="opTabelaMaiorVendedorDtFinal"/>
+                            </div>
+
+
+                            <div class="col-sm-3 col-md-2 col-lg-2">
+                                <button type="button" class="btn textoBranco bgBtnLilas" onclick="javascript:carregarTabelaMaiorVendedor()">Buscar</button>
                             </div>
                         </div>
+
+
+
+
+
                     </div>
                 </div>
+                <!-- FIM OPCOES DE PREENCHIMENTO DA TABELA DE MAIOR VENDEDOR -->
 
 
-                <table class="table table-striped">
+                <!-- TABELA DO VENDAS FUNCIONARIO -->    
+                <div id="tabelaFuncionarios">
 
-                    <tr>
-                        <th>Nome</th>
-                        <th>Quantidade</th>
-                        <th>Venda Total</th>    
-                        <th>Opcao</th>    
-                    </tr>
-
-                    <?php
-                    while ($Result = pg_fetch_object($query_exec)) {
-                        ?>
-                        <tr>
-                            <td><?php echo "$Result->nome" ?></td>
-                            <td><?php echo "$Result->qtd" ?></td>
-                            <td><?php echo "$Result->soma" ?></td>
-                            <td><a href="#">Mensal</a></td>
-                        </tr>
-                    <?php } ?>
-                </table>
+                </div>
+                <!--FIM TABELA DE VENDA DE FUNCIONARIO -->
             </div>
 
+
+            <!-- GRAFICO DE ESTATISICA DE VENDAS DO FUNCIONARIO -->
             <div class="col-md-offset-7 col-lg-offset-7">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -106,12 +102,19 @@
                     </div>
                 </div>
             </div>
-            
-            
-            <div id="tudo"></div>
+            <!-- FIM GRAFICO DE ESTATISTICA -->
+
+            <div id="teste">
+                <p>
+
+                </p>
+            </div>
+
+
+
         </div>
 
-        <footer class="bgFooter panel-footer">
+        <footer class="bgFooter navbar-fixed-bottom">
             <p class="textoBranco centralizarTexto">Todos os Direitos reservados</p>
         </footer>
 

@@ -5,11 +5,10 @@ header("content-type:application/json");
 
 $codigo = $_GET['codFunc'];
 
-$anoAtual = date('Y');
 
 $query = "select EXTRACT(month FROM data) as Mes, Sum(totalliquido) as Soma
   from venda
-  WHERE EXTRACT(year FROM data) = '$anoAtual'  and codfuncionario = $codigo
+  WHERE EXTRACT(year FROM data) = '2014'  and codfuncionario = $codigo
   group by mes
   order by mes;";
 
@@ -34,8 +33,6 @@ $i = 1;
 $qtd = pg_num_rows($query_exec);
 
 while ($result = pg_fetch_object($query_exec)) {
-
-    
     $dados .= "{\"mes\":\"" . $mes[$result->mes] . "\",\"soma\":\"" . $result->soma . "\"}";
     if ($i != $qtd) {
         $dados .= ",";

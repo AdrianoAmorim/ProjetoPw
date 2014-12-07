@@ -11,6 +11,8 @@
         <title>Cadastro de Funcionário</title>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/personalizacao.css" rel="stylesheet" type="text/css"/>
+
+
     </head>
 
     <body> 
@@ -52,7 +54,7 @@
         <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
 
         <!-- ------------------        FORMULARIO DE CADASTRO--------------------------------------------------------------------------- -->
-        <div class="container">
+        <div class="container" id="containerPrincipal">
             <form name="formCadFuncionario" action="procCadFuncionario.php" method="POST" class="form-horizontal" role="form">
 
                 <div class="form-group">
@@ -75,7 +77,7 @@
                         <div class="input-group">
                             <span class="input-group-btn">
                                 <button class="btn btn-default tiraPadding" type="button">
-                                    <a href="#" role="button"><img src="images/iconPqBusca.png" alt="Buscar"/></a>
+                                    <a href="javascript:habilitarBusca();" role="button"><img src="images/iconPqBusca.png" alt="Buscar"/></a>
                                 </button>
                             </span>
                             <input type="text" class="form-control" name="nomeFunc" id="nomeFunc" required>
@@ -83,9 +85,41 @@
                     </div>
                 </div>
 
+                <!-- DIV DE BUSCAR FUNCIONARIO  --------- -  -- ------------------------------------- -->
+                <div id="buscarFuncionario" class="row">
+                    <div class="col-sm-offset-2 col-md-offset-2 col-lg-offset-2 col-md-5 col-lg-5">
+                        <div class="bgVerdeClaro well" >
+                            <div class="form-group">
+                                <div class="col-xs-10 col-sm-4 col-md-3 col-lg-3">
+                                    <input type="text" class="form-control" name="nomeBuscarFunc" placeholder="Codigo" >
+                                </div>
+
+                                <div class="col-xs-12 col-sm-6 col-md-5 col-lg-6">
+                                    <input type="text" class="form-control" name="nomeBuscarFunc" placeholder="Nome do Funcionario" >
+                                </div>
+
+                                <div class="col-lg-3">
+                                    <input type="button" class="btn textoBranco bgBtnLilas " value="Pesquisar" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-lg-9">
+                                    <select class="form-control" name="buscaFuncionariolistResult" multiple size="8">
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- FIM DIV BUSCAR FUNCIONARIO - ----------------------------- -->
+
+
                 <div class="form-group">
                     <label for="telCelular" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Tel Celular</label>
-                    <div class="col-xs-7 col-sm-3 col-md-2 col-lg-2">
+                    <div class="col-xs-7 col-sm-3 col-md-2 col-lg-2" >
                         <input type="tel" class="form-control" name="telCelular" id="telCelular">
                     </div>
                 </div>
@@ -191,11 +225,11 @@
                     <div class="col-xs-6 col-lg-3">
                         <div class="checkbox">
                             <label>
-                                <input name="status" type="radio" value="1"> Ativo
+                                <input name="status" type="radio" value="T"> Ativo
                             </label>
                             <br />
                             <label>
-                                <input name="status"type="radio" value="0"> Inativo
+                                <input name="status"type="radio" value="F"> Inativo
                             </label>
                         </div>
                     </div>
@@ -203,17 +237,19 @@
 
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        <button type="submit" class="btn textoBranco bgBtnLilas" >Cadastrar</button>
                     </div>
                 </div>
             </form>
         </div>
-        
-        <footer class="bgFooter panel-footer">
+
+        <footer class="bgFooter navbar-fixed-bottom">
             <p class="textoBranco centralizarTexto">Todos os Direitos reservados</p>
         </footer>
-        
+
         <script src="js/jquery-2.1.1.js" type="text/javascript"></script>
+        <script src="js/script.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js"></script>
+
     </body>
 </html>

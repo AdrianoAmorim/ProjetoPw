@@ -54,9 +54,11 @@
         <?php
         require_once 'conexao.php';
 
-        $codFuncionario = $_GET['cod'];
-        $query = "SELECT * FROM funcionario WHERE codfuncionario = $codFuncionario;";
-        $query1 = "SELECT * FROM enderecofuncionario WHERE codfuncionario = $codFuncionario;";
+        $cod = base64_decode($_GET['cod']);
+        $descodificado = (($cod * (-1)) - 9) / 830;
+
+        $query = "SELECT * FROM funcionario WHERE codfuncionario = $descodificado;";
+        $query1 = "SELECT * FROM enderecofuncionario WHERE codfuncionario = $descodificado;";
         $sql_exec = pg_query($query);
         $sql_exec1 = pg_query($query1);
 
@@ -65,15 +67,10 @@
         ?>
 
         <!-- ------------------        FORMULARIO DE Alteração--------------------------------------------------------------------------- -->
-        <div class="container">
+        <div class="container" id="containerPrincipal">
             <form name="formAltFuncionario" action="procAltFuncionario.php" method="POST" class="form-horizontal" role="form">
 
-                <div class="form-group">
-                    <div class="col-xs-7 col-sm-3 col-md-2">     
-                        <input type="hidden" class="form-control" name="codFunc" id="codFunc" value="<?php echo $resultado->codfuncionario ?>">
-                    </div>
-                </div>
-
+                <input type="hidden" class="form-control" name="codFunc" id="codFunc" value="<?php echo $descodificado ?>">
 
                 <div class="form-group">
                     <label for="codCargo" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Código Cargo</label>
@@ -92,14 +89,7 @@
                 <div class="form-group">
                     <label for="nomeFunc" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Nome</label>
                     <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default tiraPadding" type="button">
-                                    <a data-toggle="modal" href="#buscarFunc" role="button"><img src="images/iconPqBusca.png" alt="Buscar"/></a>
-                                </button>
-                            </span>
-                            <input type="text" class="form-control" name="nomeFunc" id="nomeFunc" value="<?php echo $resultado->nome ?>">
-                        </div>
+                        <input type="text" class="form-control" name="nomeFunc" id="nomeFunc" value="<?php echo $resultado->nome ?>">                 
                     </div>
                 </div>
 
@@ -207,15 +197,15 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="status" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 control-label">Status</label>
+                    <label for="status" class="col-xs-3 col-sm-2 col-md-2 col-lg-2 control-label">Status</label>
                     <div class="col-xs-6 col-lg-3">
                         <div class="checkbox">
                             <label>
-                                <input name="status" type="radio" value="1"> Ativo
+                                <input name="status" type="radio" value="t" <?php echo $resultado->status == 't' ? ' checked' : ''; ?>> Ativo
                             </label>
                             <br />
                             <label>
-                                <input name="status"type="radio" value="0"> Inativo
+                                <input name="status"type="radio" value="f" <?php echo $resultado->status == 'f' ? ' checked' : ''; ?>> Inativo
                             </label>
                         </div>
                     </div>
@@ -223,13 +213,13 @@
 
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">Alterar</button>
+                        <button type="submit" class="btn textoBranco bgBtnLilas">Alterar</button>
                     </div>
                 </div>
             </form>
         </div>
-        
-        <footer class="bgFooter panel-footer">
+
+        <footer class="bgFooter navbar-fixed-bottom">
             <p class="textoBranco centralizarTexto">Todos os Direitos reservados</p>
         </footer>
         <script src="js/jquery-2.1.1.js" type="text/javascript"></script>

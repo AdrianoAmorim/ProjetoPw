@@ -14,7 +14,7 @@
 
     </head>
 
-    <body onload="javascript:carregarTabelaMaiorVendedor()" > 
+    <body > 
         <header>
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
                 <div class="container-fluid">
@@ -59,19 +59,31 @@
                     <div class="form-horizontal">
 
                         <div class="form-group ">
-                            <label for="opcoesTabelaMaiorVendedorData" class="control-label col-xs-12 col-sm-2 col-md-2 col-lg-2">Data</label>
-                            <div class="col-xs-8 col-sm-3 col-md-2 col-lg-4">
-                                <input type="date" class="form-control" name="opcoesTabelaMaiorVendedorData" id="codCargo" 
-                                       onchange="javascript:carregarTabelaMaiorVendedor()">
+                            <label for="opcoesTabelaMaiorVendedorDtInicial" class="control-label col-xs-12 col-sm-1 col-md-1 col-lg-1">De </label>
+                            <div class="col-xs-8 col-sm-3 col-md-4 col-lg-4">
+                                <input type="date" class="form-control" name="opcoesTabelaMaiorVendedorDtInicial" id="opTabelaMaiorVendedorDtInicial">
                             </div>
 
+                            <label for="opcoesTabelaMaiorVendedorDtFinal" class="control-label col-xs-12 col-sm-1 col-md-1 col-lg-1">Até </label>
+                            <div class="col-xs-8 col-sm-3 col-md-4 col-lg-4">
+                                <input type="date" class="form-control" name="opcoesTabelaMaiorVendedorDtFinal" id="opTabelaMaiorVendedorDtFinal"/>
+                            </div>
+
+
+                            <div class="col-sm-3 col-md-2 col-lg-2">
+                                <button type="button" class="btn textoBranco bgBtnLilas" onclick="javascript:carregarTabelaMaiorVendedor()">Buscar</button>
+                            </div>
                         </div>
+
+
+
+
 
                     </div>
                 </div>
                 <!-- FIM OPCOES DE PREENCHIMENTO DA TABELA DE MAIOR VENDEDOR -->
-                
-                
+
+
                 <!-- TABELA DO VENDAS FUNCIONARIO -->    
                 <div id="tabelaFuncionarios">
 
@@ -79,7 +91,7 @@
                 <!--FIM TABELA DE VENDA DE FUNCIONARIO -->
             </div>
 
-            
+
             <!-- GRAFICO DE ESTATISICA DE VENDAS DO FUNCIONARIO -->
             <div class="col-md-offset-7 col-lg-offset-7">
                 <div class="row">
@@ -91,7 +103,7 @@
                 </div>
             </div>
             <!-- FIM GRAFICO DE ESTATISTICA -->
-            
+
             <div id="teste">
                 <p>
 

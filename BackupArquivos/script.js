@@ -2,19 +2,17 @@
 //carrega ao documento se aberto
 $(document).ready(function () {
     $("div#buscarFuncionario").hide();
-    $("div#buscarCargo").hide();
     carregarTabelaMaiorVendedor();
 });
 
 //habilita e desabilita a busca pelo funcionario no cadastro
-function habilitarBuscaFuncionario() {
+function habilitarBusca() {
     $("div#buscarFuncionario").slideToggle();
 }
-function habilitarBuscaCargo(){
-    $("div#buscarCargo").slideToggle();
-}
+
+
 //faz uma solicitação com ajax e pega os dados para preencher tabela de vendas 
-//por periodo de todos os funcionarios 
+//de todos os funcionarios
 function carregarTabelaMaiorVendedor() {
     var dataInicial = $("input[name='opcoesTabelaMaiorVendedorDtInicial']").val();
     var dataFinal = $("input[name='opcoesTabelaMaiorVendedorDtFinal']").val();
@@ -25,40 +23,7 @@ function carregarTabelaMaiorVendedor() {
     });
 
 }
-//carrega tabela de relatorio com todos funcionarios
-function carregarTabelaFuncionarios() {
 
-    $.get("procListarFuncionario.php", null, function (data) {
-
-        $("#conteudoTabelas").html(data);
-    });
-}
-//carrega tabela de relatorio por cargo
-function carregarTabelaRelatorioCargo() {
-    var cargo = $("select#opcoesTabelaCargo").val();
-
-    $.get("procListaFuncionarioCargo.php", {cargo: cargo}, function (data) {
-
-        $("#conteudoTabelas").html(data);
-    });
-}
-
-function carregarTabelaRelatorioStatus() {
-    var status = $("select#opcoesTabelaStatus").val();
-
-    $.get("procListarFuncionarioStatus.php", {status: status}, function (data) {
-
-        $("#conteudoTabelas").html(data);
-    });
-}
-//gera o relatorio de desempenho de cada funconario
-
-function carregarTabelaRelatorioDesempenho() {
-    $.get("procListarFuncionarioDesempenho.php", null, function (data) {
-        $("#conteudoTabelas").html(data);
-    });
-}
-//busca os dados noo banco para carrega o grafico
 
 function procDadosGrafico(cod) {
 
@@ -68,7 +33,6 @@ function procDadosGrafico(cod) {
     });
 }
 
-//pega os Objetos JSON e transforma no Array para o Grafico
 function converterJSONtoArray(dados) {
 
     var vdados = new Array(dados.length);
@@ -90,40 +54,20 @@ function procBuscaFuncionario() {
     var nome = $("input[name='nomeBuscarFunc']").val();
 
     $.get("procBuscaFuncionario.php", {codFunc: cod, nomeFunc: nome}, function (data) {
-        $("div#resultBuscaFuncionario").html(data);
+        $("div#resultBusca").html(data);
     });
     $("input[name='codBuscarFunc']").val("");
     $("input[name='nomeBuscarFunc']").val("");
 }
-//buscar o cargo para cadastrar o funcionario
-function procBuscaCargo() {
-    var cod = $("input[name='codBuscarCargo']").val();
-    var descricao = $("input[name='nomeBuscarCargo']").val();
 
-    $.get("procBuscaCargo.php", {codCargo: cod, nomeCargo: descricao}, function (data) {
-        $("div#resultBuscaCargo").html(data);
-    });
-    $("input[name='codBuscarCargo']").val("");
-    $("input[name='nomeBuscarCargo']").val("");
-}
-
-function carregarDadosCargo() {
-    var cargo = $("select[name='buscaCargolistResult'] option:selected").val();
-   
-    $("input[name='codCargo']").val(cargo);
-    
-    $("div#buscarCargo").slideUp(500);
-    $("select[name='buscaCargolistResult']").empty();
-}
-
-//carrega as opções nos inputs do cadastro para Poder Alterar 
+//carrega as opções nos inputs
 function carregarDadosFuncionario() {
     var id = $("select[name='buscaFuncionariolistResult'] option:selected").val();
 
     $.getJSON("procDadosResultBuscaFunc.php", {cod: id}, function (data) {
-
+        
         $("input[name='codCargo']").val(data.codCargo);
-        $("input[name='codFunc']").val(data.codFunc);
+        //$("input[name='codCargo']").val(data.codFunc);
         $("input[name='nomeFunc']").val(data.nome);
         $("input[name='telResidencial']").val(data.telFixo);
         $("input[name='telCelular']").val(data.telCel);
@@ -132,32 +76,12 @@ function carregarDadosFuncionario() {
         $("input[name='rg']").val(data.rg);
         $("input[name='dtnascimento']").val(data.dtNascimento);
         $("input[name='salario']").val(data.salario);
-        $("input[name='cep']").val(data.cep);
-        $("input[name='logradouro']").val(data.logradouro);
-        $("input[name='numeroCasa']").val(data.numero);
-        $("input[name='complemento']").val(data.complemento);
-        $("input[name='bairro']").val(data.bairro);
-        $("input[name='cidade']").val(data.cidade);
-        $("input[name='email']").val(data.email);
-
-        data.uf === 'RJ' ? $("select#uf option[value='RJ']").attr('selected', true) : '';
-        data.uf === 'MG' ? $("select#uf option[value='MG']").attr('selected', true) : '';
-        data.uf === 'ES' ? $("select#uf option[value='ES']").attr('selected', true) : '';
-        data.uf === 'SP' ? $("select#uf option[value='SP']").attr('selected', true) : '';
-
-        data.status === 't' ? $("input#t").attr('checked', true) : '';
-        data.status === 'f' ? $("input#f").attr('checked', true) : '';
-
-
     });
 
 
-    $("#btnCadAlt").val("Alterar");
+    $("#cadAlt").val("Alterar");
     $("form.form-horizontal").attr("action", "procAltFuncionario.php");
-    $("div#buscarFuncionario").slideUp(500);
-    $("select[name='buscaFuncionariolistResult']").empty();
 }
-
 //Criacao do grafico tela Inicio
 function carregarGrafico(dados) {
 

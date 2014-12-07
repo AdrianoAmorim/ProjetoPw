@@ -14,7 +14,7 @@
         <script src="js/script.js" type="text/javascript"></script>
     </head>
 
-    <body onload="carregarTabelaFuncionarios()"> 
+    <body> 
         <header>
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
                 <div class="container-fluid">
@@ -40,68 +40,82 @@
                 </div>
             </nav> 
         </header>
+
+
         <?php
         require_once ('conexao.php');
 
+        $query = "select * from funcionario ORDER BY nome;";
         $queryCargo = "select * from cargo ORDER BY descricao;";
-        $sql_exec = pg_query($queryCargo) or die("ERRO: " . pg_last_error());
+        $sql_exec = pg_query($query) or die("ERRO: " . pg_last_error());
+        $sql_exec2 = pg_query($queryCargo) or die("ERRO: " . pg_last_error());
         ?>
 
         <div class="container">
-            <div class="col-xs-12 col-lg-12">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <!-- Titulo da tabela Funcionarios -->
                 <div class="panel panel-default">
                     <div class="panel-body bg-primary">
                         <div class="centralizarTexto">
-                            <span class="panel-title">Relatórios</pan>   
+                            <span class="panel-title">Listagem de Funcionarios </pan>   
                         </div>
                     </div>
                 </div>
 
-                <!-- OPÇOES DE RELATORIOS ---------------------------------------------- -->
                 <div class="panel" id="opcoesTabela">
                     <div class="form-horizontal">
 
                         <div class="form-group ">
                             <label for="opcoesTabelaCargo" class="control-label col-xs-12 col-sm-2 col-md-2 col-lg-2">Cargo</label>
-                            <div class="col-xs-7 col-sm-3 col-md-2 col-lg-2">
-                                <select class="form-control" id="opcoesTabelaCargo" name="opcoesTabelaCargo" onchange="carregarTabelaRelatorioCargo()">
-
+                            <div class="col-xs-7 col-sm-3 col-md-2 col-lg-3">
+                                <select class="form-control" id="opcoesTabelaCargo" name="opcoesTabelaCargo">
                                     <?php
-                                    while ($result1 = pg_fetch_object($sql_exec)) {
+                                    while ($result1 = pg_fetch_object($sql_exec2)) {
                                         echo "<option> $result1->descricao</option>";
                                     }
                                     ?>
                                 </select>
                             </div>
 
-                            <label for="opcoesTabelaStatus" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Status</label>
-                            <div class="col-xs-7 col-sm-3 col-md-2 col-lg-2" >
-                                <select class="form-control" id="opcoesTabelaStatus" name="opcoesTabelaStatus" onchange="carregarTabelaRelatorioStatus()">
-                                    <option value="t">Ativo</option>
-                                    <option value="f">Inativo</option>
+                            <label for="opcoesTabelaCargo" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">Status</label>
+                            <div class="col-xs-7 col-sm-3 col-md-2 col-lg-3" >
+                                <select class="form-control" id="opcoesTabelaCargo" name="opcoesTabelaCargo">
+                                    <option>Ativo</option>
+                                    <option>Inativo</option>
                                 </select>
                             </div>
-
-
-                            <div class="btn-group">
-                                <div class="col-xs-7 col-sm-3 col-md-2 col-lg-2">
-                                    <input type="button" class="btn textoBranco bgBtnLilas" value="Desempenho Individual" onclick="carregarTabelaRelatorioDesempenho()"/>
-                                </div>
-                            </div> 
                         </div>
-
 
                     </div>
                 </div>
-                <!-- FIM OPÇOES RELATORIOS -->
 
+                <!-- TABELA DE LISTAGEM DOS FUNCIONARIOS -->
 
-            </div>
+                <table class="table table-striped">
+                    <tr>
 
-            <!-- TABELA DE LISTAGEM DOS FUNCIONARIOS -->
-            <div class="col-xs-12 col-lg-12 " id="conteudoTabelas">
+                        <th>Nome</th>
+                        <th>Cargo</th>
+                        <th>Empresa</th>
+                        <th>Alterar</th>
+                    </tr>
+                    <?php
+                    while ($result = pg_fetch_object($sql_exec)) {
+                        $codigo = (($result->codfuncionario * 830) + 9) * (-1);
+                        $codCodificado = base64_encode($codigo);
+                        ?>
+                        <tr>
+                            <td><?php echo $result->nome ?> </td>
+                            <td><?php echo $result->codcargo ?> </td>
+                            <td><?php echo $result->codempresa ?> </td>
+                            <td><a href="AlterarFuncionario.php?cod=<?php echo $codCodificado ?>">
+                                    <i class="glyphicon glyphicon-pencil"></i>
+                                </a>
+                            </td>
+                        </tr>
 
+                    <?php } ?>
+                </table>
             </div>
         </div>
 

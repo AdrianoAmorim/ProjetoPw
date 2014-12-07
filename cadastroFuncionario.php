@@ -56,14 +56,14 @@
         <!-- ------------------        FORMULARIO DE CADASTRO--------------------------------------------------------------------------- -->
         <div class="container" id="containerPrincipal">
             <form name="formCadFuncionario" action="procCadFuncionario.php" method="POST" class="form-horizontal" role="form">
-
+                <input type="hidden" class="form-control" name="codFunc">
                 <div class="form-group">
                     <label for="codCargo" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Código Cargo</label>
                     <div class="col-xs-7 col-sm-3 col-md-2">
                         <div class="input-group">
                             <span class="input-group-btn">
                                 <button class="btn btn-default tiraPadding" type="button">
-                                    <a href="" ><img src="images/iconPqBusca.png" alt="Buscar"/></a>
+                                    <a href="javascript:habilitarBuscaCargo()" ><img src="images/iconPqBusca.png" alt="Buscar"/></a>
                                 </button>
                             </span>
                             <input type="text" class="form-control" name="codCargo" id="codCargo" required>
@@ -71,13 +71,41 @@
                     </div>
                 </div>
 
+                <!-- BUSCAR CARGOS CADASTRADOS -->
+                <div id="buscarCargo" class="row">
+                    <div class="col-sm-offset-2 col-md-offset-2 col-lg-offset-2 col-md-5 col-lg-5">
+                        <div class="bgVerdeClaro well" >
+                            <div class="form-group">
+                                <div class="col-xs-10 col-sm-4 col-md-3 col-lg-3">
+                                    <input type="text" class="form-control" name="codBuscarCargo" placeholder="Codigo" >
+                                </div>
+
+                                <div class="col-xs-12 col-sm-6 col-md-5 col-lg-6">
+                                    <input type="text" class="form-control" name="nomeBuscarCargo" placeholder="Nome do Funcionario" >
+                                </div>
+
+                                <div class="col-lg-3">
+                                    <input type="button" class="btn textoBranco bgBtnLilas " onclick="procBuscaCargo()" value="Pesquisar" />
+                                </div>
+                            </div>
+                            
+                            <div id="resultBuscaCargo">
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>  
+                <!-- FIM BUSCAR CARGOS CADASTRADOS -->
+                                
+                
                 <div class="form-group">
                     <label for="nomeFunc" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Nome</label>
                     <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
                         <div class="input-group">
                             <span class="input-group-btn">
                                 <button class="btn btn-default tiraPadding" type="button">
-                                    <a href="javascript:habilitarBusca();" role="button"><img src="images/iconPqBusca.png" alt="Buscar"/></a>
+                                    <a href="javascript:habilitarBuscaFuncionario();" role="button"><img src="images/iconPqBusca.png" alt="Buscar"/></a>
                                 </button>
                             </span>
                             <input type="text" class="form-control" name="nomeFunc" id="nomeFunc" required>
@@ -91,7 +119,7 @@
                         <div class="bgVerdeClaro well" >
                             <div class="form-group">
                                 <div class="col-xs-10 col-sm-4 col-md-3 col-lg-3">
-                                    <input type="text" class="form-control" name="nomeBuscarFunc" placeholder="Codigo" >
+                                    <input type="text" class="form-control" name="codBuscarFunc" placeholder="Codigo" >
                                 </div>
 
                                 <div class="col-xs-12 col-sm-6 col-md-5 col-lg-6">
@@ -99,18 +127,14 @@
                                 </div>
 
                                 <div class="col-lg-3">
-                                    <input type="button" class="btn textoBranco bgBtnLilas " value="Pesquisar" />
+                                    <input type="button" class="btn textoBranco bgBtnLilas " onclick="procBuscaFuncionario()" value="Pesquisar" />
                                 </div>
                             </div>
-
-                            <div class="form-group">
-                                <div class="col-lg-9">
-                                    <select class="form-control" name="buscaFuncionariolistResult" multiple size="8">
-                                        <option></option>
-                                    </select>
-                                </div>
+                            
+                            <div id="resultBuscaFuncionario">
+                                
                             </div>
-
+                            
                         </div>
                     </div>
                 </div>
@@ -204,11 +228,11 @@
                 <div class="form-group">
                     <label for="cidade" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">UF</label>
                     <div class="col-xs-5 col-sm-2 col-md-2 col-lg-2">
-                        <select class="form-control" id="cidade" name="uf" required>
-                            <option>RJ</option>
-                            <option>ES</option>
-                            <option>MG</option>
-                            <option>SP</option>
+                        <select class="form-control" id="uf" name="uf" required>
+                            <option value="RJ">RJ</option>
+                            <option value="ES">ES</option>
+                            <option value="MG">MG</option>
+                            <option value="SP">SP</option>
                         </select>
                     </div>
                 </div>
@@ -225,11 +249,11 @@
                     <div class="col-xs-6 col-lg-3">
                         <div class="checkbox">
                             <label>
-                                <input name="status" type="radio" value="T"> Ativo
+                                <input name="status" id="t" type="radio" value="T"> Ativo
                             </label>
                             <br />
                             <label>
-                                <input name="status"type="radio" value="F"> Inativo
+                                <input name="status" id="f" type="radio" value="F"> Inativo
                             </label>
                         </div>
                     </div>
@@ -237,7 +261,7 @@
 
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn textoBranco bgBtnLilas" >Cadastrar</button>
+                        <input type="submit" class="btn textoBranco bgBtnLilas" id="btnCadAlt" value="Cadastrar"/>
                     </div>
                 </div>
             </form>
