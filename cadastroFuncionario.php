@@ -26,7 +26,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Logo</a>
+                        <a class="navbar-brand" href="index.php">Logo</a>
                     </div>
 
                     <!-- Conteudo da nav bar-->
@@ -34,7 +34,7 @@
                         <ul class="nav navbar-nav">
                             <li role="presentation"><a href="index.php">Home</a></li>
                             <li role="presentation"><a href="cadastroFuncionario.php">Cadastro de Funcionario</a></li>
-                            <li role="presentation"><a href="#">Administração</a></li>
+                            <li role="presentation"><a href="administracao.php">Administração</a></li>
                             <li role="presentation"><a href="relatorios.php">Relatórios</a></li>
                         </ul>
                     </div>  
@@ -46,7 +46,7 @@
             <div class="panel panel-default ">
                 <div class="panel-body bg-primary">
                     <div class="centralizarTexto">
-                        <span class="panel-title">CADASTRO DE FUNCIONARIO</span>   
+                        <span id="tituloCadastro" class="panel-title">CADASTRO DE FUNCIONARIO</span>   
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@
                                     <a href="javascript:habilitarBuscaFuncionario();" role="button"><img src="images/iconPqBusca.png" alt="Buscar"/></a>
                                 </button>
                             </span>
-                            <input type="text" class="form-control" name="nomeFunc" id="nomeFunc" required>
+                            <input type="text" class="form-control" name="nomeFunc" id="nomeFunc" maxlength="45" required>
                         </div>
                     </div>
                 </div>
@@ -144,56 +144,56 @@
                 <div class="form-group">
                     <label for="telCelular" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Tel Celular</label>
                     <div class="col-xs-7 col-sm-3 col-md-2 col-lg-2" >
-                        <input type="tel" class="form-control" name="telCelular" id="telCelular">
+                        <input type="tel" class="form-control" name="telCelular" id="telCelular" maxlength="20">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="telResidencial" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Tel Residencial</label>
                     <div class="col-xs-7 col-sm-3 col-md-2 col-lg-2">
-                        <input type="tel" class="form-control" name="telResidencial" id="telResidencial">
+                        <input type="tel" class="form-control" name="telResidencial" id="telResidencial" maxlength="20">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="email" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">E-mail</label>
                     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-                        <input type="email" class="form-control" name="email" id="email" required>
+                        <input type="email" class="form-control" name="email" id="email" maxlength="45" required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="cpf" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">CPF</label>
                     <div class="col-xs-7 col-sm-3 col-md-2 col-lg-2">
-                        <input type="text" class="form-control" name="cpf" id="cpf" required>
+                        <input type="text" class="form-control" name="cpf" id="cpf" maxlength="15" required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="rg" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">RG</label>
                     <div class="col-xs-7 col-sm-3 col-md-2 col-lg-2">
-                        <input type="text" class="form-control" name="rg" id="rg" required>
+                        <input type="text" class="form-control" name="rg" id="rg" maxlength="15" required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="dtnascimento" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Data Nascimento</label>
                     <div class="col-xs-7 col-sm-3 col-md-2 col-lg-2">
-                        <input type="Date" class="form-control" name="dtnascimento" id="dtnascimento" required>
+                        <input type="Date" class="form-control" name="dtnascimento" id="dtnascimento"  required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="cep" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">CEP</label>
                     <div class="col-xs-7 col-sm-3 col-md-2 col-lg-2">
-                        <input type="text" class="form-control" name="cep" id="cep" required>
+                        <input type="text" class="form-control" name="cep" id="cep" maxlength="8"  required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="logradouro" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Logradouro</label>
                     <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
-                        <input type="text" class="form-control" name="logradouro" id="logradouro" required>
+                        <input type="text" class="form-control" name="logradouro" id="logradouro" maxlength="45" required>
                     </div>
                 </div>
 
@@ -207,21 +207,21 @@
                 <div class="form-group">
                     <label for="complemento" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Complemento</label>
                     <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
-                        <input type="text" class="form-control" name="complemento" id="complemento">
+                        <input type="text" class="form-control" name="complemento" maxlength="45" id="complemento">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="bairro" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Bairro</label>
                     <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
-                        <input type="text" class="form-control" name="bairro" id="bairro" required>
+                        <input type="text" class="form-control" name="bairro" id="bairro" maxlength="45" required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="cidade" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Cidade</label>
                     <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
-                        <input type="text" class="form-control" name="cidade" id="cidade" required>
+                        <input type="text" class="form-control" name="cidade" id="cidade" maxlength="45" required>
                     </div>
                 </div>
 

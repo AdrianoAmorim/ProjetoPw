@@ -10,7 +10,7 @@ $(document).ready(function () {
 function habilitarBuscaFuncionario() {
     $("div#buscarFuncionario").slideToggle();
 }
-function habilitarBuscaCargo(){
+function habilitarBuscaCargo() {
     $("div#buscarCargo").slideToggle();
 }
 //faz uma solicitação com ajax e pega os dados para preencher tabela de vendas 
@@ -51,15 +51,15 @@ function carregarTabelaRelatorioStatus() {
         $("#conteudoTabelas").html(data);
     });
 }
-//gera o relatorio de desempenho de cada funconario
 
+//gera o relatorio de desempenho de cada funconario
 function carregarTabelaRelatorioDesempenho() {
     $.get("procListarFuncionarioDesempenho.php", null, function (data) {
         $("#conteudoTabelas").html(data);
     });
 }
-//busca os dados noo banco para carrega o grafico
 
+//busca os dados noo banco para carrega o grafico
 function procDadosGrafico(cod) {
 
     $.getJSON("procDadosGrafico.php", {codFunc: cod}, function (data) {
@@ -109,11 +109,12 @@ function procBuscaCargo() {
 
 function carregarDadosCargo() {
     var cargo = $("select[name='buscaCargolistResult'] option:selected").val();
-   
+
     $("input[name='codCargo']").val(cargo);
-    
+
     $("div#buscarCargo").slideUp(500);
     $("select[name='buscaCargolistResult']").empty();
+
 }
 
 //carrega as opções nos inputs do cadastro para Poder Alterar 
@@ -156,6 +157,7 @@ function carregarDadosFuncionario() {
     $("form.form-horizontal").attr("action", "procAltFuncionario.php");
     $("div#buscarFuncionario").slideUp(500);
     $("select[name='buscaFuncionariolistResult']").empty();
+    $("span#tituloCadastro").html("Alterar Cadastro de Funcionário");
 }
 
 //Criacao do grafico tela Inicio

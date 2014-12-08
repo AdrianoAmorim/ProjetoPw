@@ -25,7 +25,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Logo</a>
+                        <a class="navbar-brand" href="index.php">Logo</a>
                     </div>
 
                     <!-- Conteudo da nav bar-->
@@ -33,7 +33,7 @@
                         <ul class="nav navbar-nav">
                             <li role="presentation"><a href="index.php">Home</a></li>
                             <li role="presentation"><a href="cadastroFuncionario.php">Cadastro de Funcionario</a></li>
-                            <li role="presentation"><a href="#">Administração</a></li>
+                            <li role="presentation"><a href="administracao.php">Administração</a></li>
                             <li role="presentation"><a href="relatorios.php">Relatórios</a></li>
                         </ul>
                     </div>  

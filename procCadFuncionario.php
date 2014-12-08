@@ -27,8 +27,8 @@ if ($_POST) {
     $query = "INSERT INTO funcionario(codCargo, codEmpresa, nome, telCel, telFixo, salario, status, email, cpf, rg, dtNascimento) "
             . "VALUES ('$codCargo','1','$nomeFunc','$telCel','$telFixo','$salario','$status','$email','$cpf','$rg','$dataNova')";
 
-    $query2 = "INSERT INTO enderecoFuncionario(codCargo, codEmpresa, logradouro, numero, complemento, bairro, cep, cidade, uf) "
-            . "VALUES ('$codCargo','1','$logradouro','$numCasa','$complemento','$bairro','$cep','$cidade','$uf');";
+    $query2 = "INSERT INTO enderecoFuncionario(codEmpresa, logradouro, numero, complemento, bairro, cep, cidade, uf) "
+            . "VALUES ('1','$logradouro','$numCasa','$complemento','$bairro','$cep','$cidade','$uf');";
 
     $exec_query = pg_query($query) or die("Erro:" . pg_last_error());
     $exec_query2 = pg_query($query2) or die("Erro:" . pg_last_error());

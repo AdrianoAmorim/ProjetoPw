@@ -25,7 +25,7 @@ $status = $_POST['status'];
 $query = "UPDATE funcionario SET codCargo = '$codCargo',codEmpresa = 1, nome= '$nome',telcel='$telCel',telfixo='$telFixo',"
         . " cpf='$cpf',rg='$rg',dtnascimento='$dtNascimento',salario='$salario', status='$status', email = '$email' WHERE codfuncionario = '$codFuncionario';";
 
-$query2 = "UPDATE enderecofuncionario SET codCargo = '$codCargo',codEmpresa = '1',logradouro='$logradouro',numero='$numero',complemento='$complemento',"
+$query2 = "UPDATE enderecofuncionario SET codEmpresa = '1',logradouro='$logradouro',numero='$numero',complemento='$complemento',"
         . " bairro= '$bairro', cep='$cep', cidade='$cidade', uf='$uf' WHERE codfuncionario = '$codFuncionario';";
 
 $exec_query = pg_query($query) or die("Erro na Alteração de Funcionario ". pg_last_error());

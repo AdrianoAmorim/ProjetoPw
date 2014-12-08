@@ -42,71 +42,21 @@
         </header>
 
         <div class="container" id="containerPrincipal">
-
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <!-- Titulo da tabela de Funcionario/Venda -->
+            <!-- Titulo -->
                 <div class="panel panel-default">
                     <div class="panel-body bg-primary">
                         <div class="centralizarTexto">
-                            <span class="panel-title">Resumo de Vendas por período</pan>   
+                            <span class="panel-title">ADMINSTRACAO</pan>   
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- FIM TITULO DA TABELA DE FUNCIONARIO/VENDA -->
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                    <!-- OPCOES DE PREENCHIMENTO DA TABELA DE MAIOR VENDEDOR -->
-                    <div class="panel" id="opcoesTabela">
-                        <div class="form-horizontal">
+                <!-- FIM TITULO  -->
 
-                            <div class="form-group ">
-                                <label for="opcoesTabelaMaiorVendedorDtInicial" class="control-label col-xs-12 col-sm-1 col-md-1 col-lg-1">De </label>
-                                <div class="col-xs-8 col-sm-3 col-md-4 col-lg-4">
-                                    <input type="date" class="form-control" name="opcoesTabelaMaiorVendedorDtInicial" id="opTabelaMaiorVendedorDtInicial">
-                                </div>
 
-                                <label for="opcoesTabelaMaiorVendedorDtFinal" class="control-label col-xs-12 col-sm-1 col-md-1 col-lg-1">Até </label>
-                                <div class="col-xs-8 col-sm-3 col-md-4 col-lg-4">
-                                    <input type="date" class="form-control" name="opcoesTabelaMaiorVendedorDtFinal" id="opTabelaMaiorVendedorDtFinal"/>
-                                </div>
 
-                                <div class="col-sm-3 col-md-2 col-lg-2">
-                                    <button type="button" class="btn textoBranco bgBtnLilas" onclick="javascript:carregarTabelaMaiorVendedor()">Buscar</button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- TABELA DO VENDAS FUNCIONARIO -->    
-                    <div id="tabelaFuncionarios">
-
-                    </div>
-                    <!--FIM TABELA DE VENDA DE FUNCIONARIO -->
-                </div>
-
-                <!-- GRAFICO DE ESTATISICA DE VENDAS DO FUNCIONARIO -->
-                <div class="col-lg-offset-7">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
-                            <div id="container" style=" height: 400px;">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- FIM GRAFICO DE ESTATISTICA -->
-
-            </div>
-            <!-- FIM OPCOES DE PREENCHIMENTO DA TABELA DE MAIOR VENDEDOR -->
 
         </div>
-
-
-
-
-
-
+        
         <footer class="bgFooter navbar-fixed-bottom">
             <p class="textoBranco centralizarTexto">Todos os Direitos reservados</p>
         </footer>

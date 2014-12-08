@@ -24,7 +24,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Logo</a>
+                        <a class="navbar-brand" href="index.php">Logo</a>
                     </div>
 
                     <!-- Conteudo da nav bar-->
@@ -32,7 +32,7 @@
                         <ul class="nav navbar-nav">
                             <li role="presentation"><a href="index.php">Home</a></li>
                             <li role="presentation"><a href="cadastroFuncionario.php">Cadastro de Funcionario</a></li>
-                            <li role="presentation"><a href="#">Administração</a></li>
+                            <li role="presentation"><a href="administracao.php">Administração</a></li>
                             <li role="presentation"><a href="relatorios.php">Relatórios</a></li>
                         </ul>
                     </div>  
@@ -78,13 +78,41 @@
                         <div class="input-group">
                             <span class="input-group-btn">
                                 <button class="btn btn-default tiraPadding" type="button">
-                                    <a href="" ><img src="images/iconPqBusca.png" alt="Buscar"/></a>
+                                    <a href="javascript:habilitarBuscaCargo()" ><img src="images/iconPqBusca.png" alt="Buscar"/></a>
                                 </button>
                             </span>
                             <input type="text" class="form-control" name="codCargo" id="codCargo" value="<?php echo $resultado->codcargo ?>">
                         </div>
                     </div>
                 </div>
+
+                <!-- BUSCAR CARGOS CADASTRADOS -->
+                <div id="buscarCargo" class="row">
+                    <div class="col-sm-offset-2 col-md-offset-2 col-lg-offset-2 col-md-5 col-lg-5">
+                        <div class="bgVerdeClaro well" >
+                            <div class="form-group">
+                                <div class="col-xs-10 col-sm-4 col-md-3 col-lg-3">
+                                    <input type="text" class="form-control" name="codBuscarCargo" placeholder="Codigo" >
+                                </div>
+
+                                <div class="col-xs-12 col-sm-6 col-md-5 col-lg-6">
+                                    <input type="text" class="form-control" name="nomeBuscarCargo" placeholder="Nome do Funcionario" >
+                                </div>
+
+                                <div class="col-lg-3">
+                                    <input type="button" class="btn textoBranco bgBtnLilas " onclick="procBuscaCargo()" value="Pesquisar" />
+                                </div>
+                            </div>
+
+                            <div id="resultBuscaCargo">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>  
+                <!-- FIM BUSCAR CARGOS CADASTRADOS -->
+
 
                 <div class="form-group">
                     <label for="nomeFunc" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Nome</label>
@@ -223,6 +251,8 @@
             <p class="textoBranco centralizarTexto">Todos os Direitos reservados</p>
         </footer>
         <script src="js/jquery-2.1.1.js" type="text/javascript"></script>
+        <script src="js/script.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js"></script>
+
     </body>
 </html>
