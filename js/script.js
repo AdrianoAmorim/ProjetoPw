@@ -3,6 +3,8 @@
 $(document).ready(function () {
     $("div#buscarFuncionario").hide();
     $("div#buscarCargo").hide();
+    $("div#fade").hide();
+    $("div#fade").fadeIn(1000);
     carregarTabelaMaiorVendedor();
 });
 

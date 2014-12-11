@@ -24,7 +24,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.php">Logo</a>
+                        <a class="navbar-brand" href="index.php">SGV</a>
                     </div>
 
                     <!-- Conteudo da nav bar-->
@@ -248,7 +248,7 @@
         </div>
 
         <footer class="bgFooter navbar-fixed-bottom">
-            <p class="textoBranco centralizarTexto">Todos os Direitos reservados</p>
+            <p class="textoBranco centralizarTexto">SISTEMA DE GERENCIAMENTO DE VENDAS</p>
         </footer>
         <script src="js/jquery-2.1.1.js" type="text/javascript"></script>
         <script src="js/script.js" type="text/javascript"></script>

@@ -32,13 +32,13 @@ body{
 
 }
 
-div.container > div.panel.panel-default{
+div.container div.panel.panel-default{
+    border: 2px solid #277d4d;
     margin-bottom: 30px;
 }
 
 div.container  div.panel-body > div.centralizarTexto > span {
     font-weight: bold;
-    color: black;
 }
 
 div.container div#opcoesTabela {

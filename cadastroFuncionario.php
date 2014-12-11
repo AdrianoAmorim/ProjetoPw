@@ -26,7 +26,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.php">Logo</a>
+                        <a class="navbar-brand" href="index.php">SGV</a>
                     </div>
 
                     <!-- Conteudo da nav bar-->
@@ -46,7 +46,7 @@
             <div class="panel panel-default ">
                 <div class="panel-body bg-primary">
                     <div class="centralizarTexto">
-                        <span id="tituloCadastro" class="panel-title">CADASTRO DE FUNCIONARIO</span>   
+                        <span class="panel-title textoBranco">CADASTRO DE FUNCIONARIO</span>   
                     </div>
                 </div>
             </div>
@@ -88,17 +88,17 @@
                                     <input type="button" class="btn textoBranco bgBtnLilas " onclick="procBuscaCargo()" value="Pesquisar" />
                                 </div>
                             </div>
-                            
+
                             <div id="resultBuscaCargo">
-                                
+
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>  
                 <!-- FIM BUSCAR CARGOS CADASTRADOS -->
-                                
-                
+
+
                 <div class="form-group">
                     <label for="nomeFunc" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Nome</label>
                     <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
@@ -130,11 +130,11 @@
                                     <input type="button" class="btn textoBranco bgBtnLilas " onclick="procBuscaFuncionario()" value="Pesquisar" />
                                 </div>
                             </div>
-                            
+
                             <div id="resultBuscaFuncionario">
-                                
+
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -268,7 +268,7 @@
         </div>
 
         <footer class="bgFooter navbar-fixed-bottom">
-            <p class="textoBranco centralizarTexto">Todos os Direitos reservados</p>
+            <p class="textoBranco centralizarTexto">SISTEMA DE GERENCIAMENTO DE VENDAS</p>
         </footer>
 
         <script src="js/jquery-2.1.1.js" type="text/javascript"></script>

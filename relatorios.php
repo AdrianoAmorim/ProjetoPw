@@ -53,7 +53,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body bg-primary">
                         <div class="centralizarTexto">
-                            <span class="panel-title">Relatórios</pan>   
+                            <span class="panel-title textoBranco">Relatórios</pan>   
                         </div>
                     </div>
                 </div>
