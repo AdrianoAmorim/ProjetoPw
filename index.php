@@ -102,11 +102,6 @@
 
         </div>
 
-
-
-
-
-
         <footer class="bgFooter navbar-fixed-bottom">
             <p class="textoBranco centralizarTexto">SISTEMA DE GERENCIAMENTO DE VENDAS</p>
         </footer>

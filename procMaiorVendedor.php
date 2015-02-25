@@ -1,6 +1,6 @@
 <?php
 
-require_once 'conexao.php';
+require_once ('conexao.php');
 //pega a data da funcao .get do JAvascript
 $dataIni = trim($_GET['dataInicial']);
 $dataFim = trim($_GET['dataFinal']);
